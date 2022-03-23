@@ -20,8 +20,7 @@
 /* header section*/
 
 .hero-section {
-  background: url('../../assets/image/hero-image/N29_no_background.png')
-    no-repeat center;
+  background: url('../../assets/image/hero-image/N29.png') no-repeat center;
   background-color: black;
   background-size: contain;
   padding: 2rem 5rem;
