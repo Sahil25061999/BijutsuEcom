@@ -23,27 +23,18 @@ const Navbar = () => {
       <nav className="navbar-menu">
         <ul className="navbar-list list-style-none">
           <li className="navbar-item">
-            <a
-              href="/pages/product_listing/product_listing.html"
-              className="btn navbar-link"
-            >
+            <a href="#" className="btn navbar-link">
               <span className="fa-solid fa-globe navbar-icon"></span>
             </a>
           </li>
 
           <li className="navbar-item">
-            <a
-              href="/pages/authentication/login.html"
-              className="navbar-link btn"
-            >
+            <a href="#" className="navbar-link btn">
               Login
             </a>
           </li>
           <li className="navbar-item">
-            <a
-              href="/pages/authentication/signup.html"
-              className="navbar-link btn btn-black"
-            >
+            <a href="#" className="navbar-link btn btn-black">
               Sign up
             </a>
           </li>
