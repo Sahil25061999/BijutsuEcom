@@ -10,7 +10,6 @@ import { cardData, categoryCardData } from '../../data/cardData/cardData';
 import './HomePage.css';
 
 const HomePage = () => {
-  console.log(cardData);
   return (
     <>
       <Navbar />
