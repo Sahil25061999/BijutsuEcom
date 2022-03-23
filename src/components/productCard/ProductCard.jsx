@@ -12,12 +12,7 @@ const ProductCardVertical = ({
   return (
     <div className="card">
       <div className="card-image-container">
-        <img
-          className="card-image"
-          src={imgSrc}
-          alt="product-image"
-          loading="lazy"
-        />
+        <img className="card-image" src={imgSrc} loading="lazy" />
       </div>
       <div className="card-head">
         <h3 className="card-heading d-flex">{cardHeading}</h3>
@@ -49,12 +44,7 @@ const CategoryCard = ({ imgSrc, category }) => {
         </a>
       </div>
       <div className="card-image-container">
-        <img
-          className="card-image"
-          src={imgSrc}
-          alt="product-image"
-          loading="lazy"
-        />
+        <img className="card-image" src={imgSrc} loading="lazy" />
       </div>
       <div className="card-head">
         <h3 className="card-heading d-flex">{category}</h3>

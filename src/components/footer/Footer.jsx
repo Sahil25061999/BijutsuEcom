@@ -8,9 +8,7 @@ const Footer = () => {
         <h3>About us</h3>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
-            <a className="" href="#">
-              Our Story
-            </a>
+            <a href="#">Our Story</a>
           </li>
           <li className="footer-list-items">
             <a href="#">Blogs</a>
