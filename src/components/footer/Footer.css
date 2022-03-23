@@ -1,0 +1,30 @@
+.footer {
+  padding: 2rem;
+  background: var(--secondary-text-color);
+  color: var(--primary-text-color);
+  bottom: -10%;
+  width: 100vw;
+  height: 40vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.footer-list-items {
+  margin: 8px 0;
+}
+
+@media only screen and (max-width: 58.75em) {
+  .footer {
+    height: max-content;
+  }
+}
+
+@media only screen and (max-width: 34.06em) {
+  .footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, minmax(max-content, 50px));
+    row-gap: 1rem;
+    justify-items: start;
+  }
+}
