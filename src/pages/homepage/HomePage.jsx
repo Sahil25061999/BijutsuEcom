@@ -46,6 +46,7 @@ const HomePage = () => {
               </div>
               <div className="card-image-container">
                 <iframe
+                  title="office"
                   src="https://giphy.com/embed/12XMGIWtrHBl5e"
                   width="480"
                   height="392"
