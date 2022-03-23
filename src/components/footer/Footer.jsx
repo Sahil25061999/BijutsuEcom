@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <section className="footer-about-us">
-        <h3>About us</h3>
+        <h2>About us</h2>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
             <a href="#">Our Story</a>
@@ -19,7 +19,7 @@ const Footer = () => {
         </ul>
       </section>
       <section className="footer-support">
-        <h3>Support</h3>
+        <h2>Support</h2>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
             <a href="#">FAQ</a>
@@ -33,7 +33,7 @@ const Footer = () => {
         </ul>
       </section>
       <section className="footer-socials">
-        <h3>Socials</h3>
+        <h2>Socials</h2>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
             <a href="#">Instagram</a>
