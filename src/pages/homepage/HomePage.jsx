@@ -72,10 +72,10 @@ const HomePage = () => {
         <section className="cards-section home-cards-section">
           {/* <button className="btn btn-float btn-white btn-left">
             <span className="fa-solid fa-angle-left"></span>
-          </button> */}
+          </button> 
           <button className="btn btn-float btn-white btn-right">
             <span className="fa-solid fa-angle-right"></span>
-          </button>
+          </button> */}
           {cardData.map((item) => (
             <HomeCardVertical
               key={uuid()}
