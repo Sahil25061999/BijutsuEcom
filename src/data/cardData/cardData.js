@@ -7,7 +7,9 @@ import EDM from '../../assets/image/card image/compressor/images/edm.jpg';
 const cardData = [
   {
     imgSrc: DigitalArt,
+    category: 'digital art',
     cardHeading: 'Elevate to sky',
+    cardBadge: 'hot',
     cardSubHeading: 'by Rick Martin',
     cardContent:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
@@ -16,7 +18,9 @@ const cardData = [
   },
   {
     imgSrc: AbstractImage,
+    category: 'digital art',
     cardHeading: 'Abstract Image',
+    cardBadge: 'trending',
     cardSubHeading: 'by Rick Martin',
     cardContent:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
@@ -25,7 +29,9 @@ const cardData = [
   },
   {
     imgSrc: Photography,
+    category: 'photography',
     cardHeading: 'Photography',
+    cardBadge: '',
     cardSubHeading: 'by Rick Martin',
     cardContent:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
@@ -34,7 +40,9 @@ const cardData = [
   },
   {
     imgSrc: HipHop,
+    category: 'hiphop music',
     cardHeading: 'Hip Hop Music',
+    cardBadge: '',
     cardSubHeading: 'by Rick Martin',
     cardContent:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
@@ -44,7 +52,9 @@ const cardData = [
 
   {
     imgSrc: EDM,
+    category: 'edm music',
     cardHeading: 'EDM Music',
+    cardBadge: '',
     cardSubHeading: 'by Rick Martin',
     cardContent:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',

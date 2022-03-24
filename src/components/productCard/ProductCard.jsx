@@ -1,8 +1,10 @@
 import React from 'react';
+import { BuyButton, CartButton, WishlistButton } from '../button/Button';
 import './ProductCard.css';
 
-const ProductCardVertical = ({
+const HomeCardVertical = ({
   imgSrc,
+  category,
   cardHeading,
   cardSubHeading,
   cardContent,
@@ -12,7 +14,12 @@ const ProductCardVertical = ({
   return (
     <div className="card">
       <div className="card-image-container">
-        <img className="card-image" src={imgSrc} loading="lazy" />
+        <img
+          className="card-image"
+          alt="product-image"
+          src={imgSrc}
+          loading="lazy"
+        />
       </div>
       <div className="card-head">
         <h3 className="card-heading d-flex">{cardHeading}</h3>
@@ -27,9 +34,50 @@ const ProductCardVertical = ({
           </span>
         </div>
       </div>
+    </div>
+  );
+};
+
+const CardVertical = ({
+  imgSrc,
+  category,
+  cardHeading,
+  cardBadge,
+  cardSubHeading,
+  productDiscountedPrice,
+  productOriginalPrice,
+}) => {
+  return (
+    <div className="card">
+      <div className="card-image-container">
+        <img
+          className="card-image"
+          src={imgSrc}
+          alt="product-image"
+          loading="lazy"
+        />
+      </div>
+      <div className="card-head">
+        <h3 className="card-heading d-flex">
+          {cardHeading}
+          {cardBadge && (
+            <span class="badge-text badge-sm badge-accent">{cardBadge}</span>
+          )}
+        </h3>
+        <p className="card-subheading">{cardSubHeading}</p>
+      </div>
+      <div className="card-content">
+        <div className="card-pricing">
+          <h3 className="margin-r-5">{productDiscountedPrice}</h3>
+          <span className="card-og-price small-text strike-text">
+            {productOriginalPrice}
+          </span>
+        </div>
+      </div>
       <div className="card-foot d-flex">
-        <button className="btn btn-black margin-r-10">Buy</button>
-        <button className="btn btn-outline-black">Cart</button>
+        <BuyButton />
+        <CartButton />
+        <WishlistButton />
       </div>
     </div>
   );
@@ -53,4 +101,4 @@ const CategoryCard = ({ imgSrc, category }) => {
   );
 };
 
-export { ProductCardVertical, CategoryCard };
+export { HomeCardVertical, CategoryCard, CardVertical };
