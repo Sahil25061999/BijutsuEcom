@@ -1,9 +1,6 @@
 import React from 'react';
-import { v4 as uuid } from 'uuid';
-
 import { CardVertical } from '../../components/productCard/ProductCard';
 import { cardData } from '../../data/cardData/cardData';
-
 import './ProductList.css';
 import Filter from '../../components/filter/Filter';
 
@@ -15,7 +12,7 @@ const ProductList = () => {
         <section class="product-list">
           {cardData.map((item) => (
             <CardVertical
-              key={uuid()}
+              key={item.id}
               imgSrc={item.imgSrc}
               category={item.category}
               cardHeading={item.cardHeading}

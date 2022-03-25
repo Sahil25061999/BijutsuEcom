@@ -3,9 +3,10 @@ import DigitalArt from '../../assets/image/card image/compressor/images/digital 
 import Photography from '../../assets/image/card image/compressor/images/photography.jpg';
 import HipHop from '../../assets/image/card image/compressor/images/hip hop music.jpg';
 import EDM from '../../assets/image/card image/compressor/images/edm.jpg';
-
+import { v4 as uuid } from 'uuid';
 const cardData = [
   {
+    id: uuid(),
     imgSrc: DigitalArt,
     category: 'digital art',
     cardHeading: 'Elevate to sky',
@@ -17,6 +18,7 @@ const cardData = [
     productOriginalPrice: '$100',
   },
   {
+    id: uuid(),
     imgSrc: AbstractImage,
     category: 'digital art',
     cardHeading: 'Abstract Image',
@@ -28,6 +30,7 @@ const cardData = [
     productOriginalPrice: '$100',
   },
   {
+    id: uuid(),
     imgSrc: Photography,
     category: 'photography',
     cardHeading: 'Photography',
@@ -39,6 +42,7 @@ const cardData = [
     productOriginalPrice: '$100',
   },
   {
+    id: uuid(),
     imgSrc: HipHop,
     category: 'hiphop music',
     cardHeading: 'Hip Hop Music',
@@ -51,6 +55,7 @@ const cardData = [
   },
 
   {
+    id: uuid(),
     imgSrc: EDM,
     category: 'edm music',
     cardHeading: 'EDM Music',
@@ -63,28 +68,4 @@ const cardData = [
   },
 ];
 
-const categoryCardData = [
-  {
-    imgSrc: DigitalArt,
-    category: 'Digital Art',
-  },
-  {
-    imgSrc: AbstractImage,
-    category: 'Abstract Image',
-  },
-  {
-    imgSrc: Photography,
-    category: 'Photography',
-  },
-  {
-    imgSrc: HipHop,
-    category: 'Hip Hop Music',
-  },
-
-  {
-    imgSrc: EDM,
-    category: 'EDM Music',
-  },
-];
-
-export { cardData, categoryCardData };
+export { cardData };

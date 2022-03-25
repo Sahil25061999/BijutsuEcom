@@ -1,4 +1,5 @@
 import React from 'react';
+import { Checkbox, RadioButton } from '../input/Input';
 import './Filter.css';
 const Filter = () => {
   return (
@@ -29,44 +30,32 @@ const Filter = () => {
           <h3>Category</h3>
           <div className="filter-input-container">
             <label className="margin-b-5">
-              <input
-                name="digital_art_checkbox"
+              <Checkbox
                 id="digital_art_checkbox"
-                type="checkbox"
+                name="digital_art_checkbox"
                 value="Digital art"
-                className="checkbox"
               />
               Digital Art
             </label>
 
             <label className="margin-b-5">
-              <input
-                name="photography_checkbox"
+              <Checkbox
                 id="photography_checkbox"
-                type="checkbox"
+                name="photography_checkbox"
                 value="Photography"
-                className="checkbox"
               />
               Photography
             </label>
             <label className="margin-b-5">
-              <input
-                name="music_checkbox"
+              <Checkbox
                 id="music_checkbox"
-                type="checkbox"
+                name="music_checkbox"
                 value="music"
-                className="checkbox"
               />
               Music
             </label>
             <label className="margin-b-5">
-              <input
-                name="gif_checkbox"
-                id="gif_checkbox"
-                type="checkbox"
-                value="gif"
-                className="checkbox"
-              />
+              <Checkbox id="gif_checkbox" name="gif_checkbox" value="gif" />
               Gif
             </label>
           </div>
@@ -75,40 +64,20 @@ const Filter = () => {
           <h3>Ratings</h3>
           <div className="filter-input-container">
             <label className="margin-b-5">
-              <input
-                name="ratings"
-                type="radio"
-                value="4 stars & above"
-                className="radio margin-r-5"
-              />
-              4 stars & above
+              <RadioButton name="ratings" value="4 stars & above" />4 stars &
+              above
             </label>
             <label className="margin-b-5">
-              <input
-                name="ratings"
-                type="radio"
-                value="3 stars & above"
-                className="radio margin-r-5"
-              />
-              3 stars & above
+              <RadioButton name="ratings" value="3 stars & above" />3 stars &
+              above
             </label>
             <label className="margin-b-5">
-              <input
-                name="ratings"
-                type="radio"
-                value="2 stars & above"
-                className="radio margin-r-5"
-              />
-              2 stars & above
+              <RadioButton name="ratings" value="2 stars & above" />2 stars &
+              above
             </label>
             <label className="margin-b-5">
-              <input
-                name="ratings"
-                type="radio"
-                value="1 stars & above"
-                className="radio margin-r-5"
-              />
-              1 stars & above
+              <RadioButton name="ratings" value="1 stars & above" />1 stars &
+              above
             </label>
           </div>
         </div>
@@ -116,30 +85,15 @@ const Filter = () => {
           <h3>Sort by</h3>
           <div className="filter-input-container">
             <label className="margin-b-5">
-              <input
-                name="sort"
-                type="radio"
-                value="Featured Products"
-                className="radio margin-r-5"
-              />
+              <RadioButton name="sort" value="Featured Products" />
               Featured Products
             </label>
             <label className="margin-b-5">
-              <input
-                name="sort"
-                type="radio"
-                value="Price high to low"
-                className="radio margin-r-5"
-              />
+              <RadioButton name="sort" value="Price high to low" />
               Price high to Low
             </label>
             <label className="margin-b-5">
-              <input
-                name="sort"
-                type="radio"
-                value="Price low to high"
-                className="radio margin-r-5"
-              />
+              <RadioButton name="sort" value="Price low to high" />
               Price low to high
             </label>
           </div>
