@@ -7,6 +7,10 @@
   font-size: 1.2rem;
 }
 
+.navbar-link.active {
+  color: var(--active-color);
+}
+
 .home-navbar {
   background-color: rgb(255, 255, 255);
   position: fixed;
@@ -20,11 +24,6 @@
   width: 8px;
   top: 0;
   right: 0;
-}
-
-.textbox:hover,
-.textbox:focus {
-  border-color: var(--secondary-text-color);
 }
 
 @media only screen and (max-width: 58.75em) {

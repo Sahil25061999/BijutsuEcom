@@ -1,0 +1,7 @@
+.wishlist-btn-active {
+  color: var(--wishlist-active);
+}
+
+.btn {
+  transition: 0.2s;
+}
