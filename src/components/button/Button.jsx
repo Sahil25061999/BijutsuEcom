@@ -8,8 +8,9 @@ const BuyButton = () => {
   );
 };
 
-const CartButton = () => {
-  const [cartActiveState, setCartActiveState] = useState(false);
+const CartButton = ({ cartState }) => {
+  console.log(cartState);
+  const [cartActiveState, setCartActiveState] = useState(cartState);
   const handleCartClick = () => {
     setCartActiveState(true);
   };
@@ -27,8 +28,8 @@ const CartButton = () => {
   );
 };
 
-const WishlistButton = () => {
-  const [wishlistActiveState, setWishlistActiveState] = useState(false);
+const WishlistButton = ({ wishlistState }) => {
+  const [wishlistActiveState, setWishlistActiveState] = useState(wishlistState);
   const handleWishlistClick = () => {
     setWishlistActiveState((prev) => !prev);
   };

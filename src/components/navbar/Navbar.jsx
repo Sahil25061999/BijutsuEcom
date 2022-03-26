@@ -1,10 +1,9 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SearchBar from '../searchBar/SearchBar';
+import { SearchBar } from '../component_index';
 
 import './Navbar.css';
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <>
       <header className="navbar home-navbar">
@@ -21,7 +20,16 @@ const Navbar = () => {
                 <span className="fa-solid fa-globe navbar-icon"></span>
               </NavLink>
             </li>
-
+            <li className="navbar-item">
+              <NavLink to="/wishlist" className=" btn navbar-link ">
+                <span className="fa-solid fa-heart navbar-icon"></span>
+              </NavLink>
+            </li>
+            <li className="navbar-item">
+              <NavLink to="/cart" className=" btn navbar-link ">
+                <span className="fa-solid fa-cart-shopping navbar-icon"></span>
+              </NavLink>
+            </li>
             <li className="navbar-item">
               <NavLink to="/login" className="navbar-link btn">
                 Login
@@ -43,5 +51,3 @@ const Navbar = () => {
     </>
   );
 };
-
-export default Navbar;

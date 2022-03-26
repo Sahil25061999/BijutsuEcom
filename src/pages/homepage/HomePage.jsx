@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import {
   HomeCardVertical,
   CategoryCard,
-} from '../../components/productCard/ProductCard';
+} from '../../components/component_index';
 import { cardData } from '../../data/cardData/cardData';
 import './HomePage.css';
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <main className="home-container">
       {/* HERO SECTION  */}
@@ -89,5 +89,3 @@ const HomePage = () => {
     </main>
   );
 };
-
-export default HomePage;

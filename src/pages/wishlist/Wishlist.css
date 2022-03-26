@@ -1,0 +1,29 @@
+.wishlist-body,
+.wishlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wishlist-body {
+  width: 100vw;
+  height: 100%;
+  margin: 4rem 0;
+  flex-direction: column;
+}
+
+.wishlist-body > h2 {
+  margin: 2rem 0;
+}
+
+.wishlist {
+  flex-wrap: wrap;
+}
+
+.wishlist .card {
+  border: 2px solid var(--secondary-text-color);
+}
+
+.card-foot {
+  margin-bottom: 0;
+}

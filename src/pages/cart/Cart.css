@@ -1,0 +1,98 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* layout */
+
+.cart-body {
+  width: 100vw;
+
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+  place-content: center;
+  justify-items: center;
+  background-color: rgba(230, 230, 230, 0.288);
+
+  padding: 0 5rem;
+}
+
+/* My Cart Heading*/
+
+.cart-body > h2 {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  text-align: center;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.cart-product-list,
+.cart-price-section {
+  grid-row: 2;
+}
+
+.cart-product-list {
+  grid-column: 1;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.cart-price-section {
+  grid-column: 2;
+  background-color: var(--primary-text-color);
+  max-width: 20rem;
+  width: 100%;
+  height: max-content;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+/* Price details container*/
+
+.cart-price-container {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--secondary-text-color);
+}
+
+/* Price container  rows */
+
+.cart-price-container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.cart-price-container div:last-child {
+  margin: 1rem 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--secondary-text-color);
+  border-bottom: 1px solid var(--secondary-text-color);
+}
+
+/* Cart Price title*/
+.cart-price-section > p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.cart-order-btn {
+  width: 100%;
+}
+
+/* Card Styling specifically for cart page*/
+
+@media only screen and (max-width: 60em) {
+  body {
+    font-size: 80%;
+  }
+}

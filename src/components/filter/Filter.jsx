@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, RadioButton } from '../input/Input';
+import { Checkbox, RadioButton } from '../component_index';
 import './Filter.css';
 const Filter = () => {
   return (
@@ -103,4 +103,4 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+export { Filter };
