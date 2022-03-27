@@ -1,3 +1,4 @@
+export { PriceSection } from './priceSection/PriceSection';
 export { BuyButton, CartButton, WishlistButton } from './button/Button';
 export { Filter } from './filter/Filter';
 export { Footer } from './footer/Footer';
