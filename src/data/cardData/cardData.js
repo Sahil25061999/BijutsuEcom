@@ -16,6 +16,8 @@ const cardData = [
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
     productDiscountedPrice: '$50',
     productOriginalPrice: '$100',
+    wishlist: true,
+    cart: false,
   },
   {
     id: uuid(),
@@ -28,6 +30,8 @@ const cardData = [
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
     productDiscountedPrice: '$50',
     productOriginalPrice: '$100',
+    wishlist: true,
+    cart: false,
   },
   {
     id: uuid(),
@@ -40,6 +44,8 @@ const cardData = [
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
     productDiscountedPrice: '$50',
     productOriginalPrice: '$100',
+    wishlist: true,
+    cart: false,
   },
   {
     id: uuid(),
@@ -52,6 +58,8 @@ const cardData = [
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
     productDiscountedPrice: '$50',
     productOriginalPrice: '$100',
+    wishlist: true,
+    cart: false,
   },
 
   {
@@ -65,6 +73,8 @@ const cardData = [
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Repellendus voluptas at id nihil, alias ipsam veniam odit nisireiciendis molestiae!',
     productDiscountedPrice: '$50',
     productOriginalPrice: '$100',
+    wishlist: true,
+    cart: false,
   },
 ];
 

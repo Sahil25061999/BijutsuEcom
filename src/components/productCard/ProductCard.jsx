@@ -1,5 +1,5 @@
 import React from 'react';
-import { BuyButton, CartButton, WishlistButton } from '../button/Button';
+import { BuyButton, CartButton, WishlistButton } from '../component_index';
 import './ProductCard.css';
 
 const HomeCardVertical = ({
@@ -46,6 +46,8 @@ const CardVertical = ({
   cardSubHeading,
   productDiscountedPrice,
   productOriginalPrice,
+  wishlist,
+  cart,
 }) => {
   return (
     <div className="card">
@@ -76,8 +78,8 @@ const CardVertical = ({
       </div>
       <div className="card-foot d-flex">
         <BuyButton />
-        <CartButton />
-        <WishlistButton />
+        <CartButton cartState={cart} />
+        <WishlistButton wishlistState={wishlist} />
       </div>
     </div>
   );

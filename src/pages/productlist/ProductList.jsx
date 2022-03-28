@@ -1,13 +1,13 @@
 import React from 'react';
-import { CardVertical } from '../../components/productCard/ProductCard';
+
 import { cardData } from '../../data/cardData/cardData';
 import './ProductList.css';
-import Filter from '../../components/filter/Filter';
+import { CardVertical, Filter } from '../../components/component_index';
 
-const ProductList = () => {
+export const ProductList = () => {
   return (
     <>
-      <main className="body">
+      <main className="productList-body">
         <Filter />
         <section class="product-list">
           {cardData.map((item) => (
@@ -20,6 +20,8 @@ const ProductList = () => {
               cardBadge={item.cardBadge}
               productDiscountedPrice={item.productDiscountedPrice}
               productOriginalPrice={item.productOriginalPrice}
+              wishlist={item.wishlist}
+              cart={item.cart}
             />
           ))}
         </section>
@@ -27,5 +29,3 @@ const ProductList = () => {
     </>
   );
 };
-
-export default ProductList;
