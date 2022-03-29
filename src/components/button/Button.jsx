@@ -1,5 +1,5 @@
-import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
 import './Button.css';
 
 const BuyButton = () => {
@@ -9,7 +9,6 @@ const BuyButton = () => {
 };
 
 const CartButton = ({ cartState }) => {
-  console.log(cartState);
   const [cartActiveState, setCartActiveState] = useState(cartState);
   const handleCartClick = () => {
     setCartActiveState(true);

@@ -1,6 +1,5 @@
 import { useFilter } from '../../context/filter-context';
 
-import { Checkbox, RadioButton } from '../component_index';
 import './Filter.css';
 const Filter = () => {
   const {
