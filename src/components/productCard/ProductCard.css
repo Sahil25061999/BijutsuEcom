@@ -6,6 +6,16 @@
   position: relative;
 }
 
+.card-text-overlay {
+  top: 0;
+  left: 0;
+}
+
+.badge-sm {
+  padding: 2px 5px;
+  border-radius: 1rem;
+}
+
 .card:not([name='card-heading']) {
   font-family: var(--body-font);
 }
