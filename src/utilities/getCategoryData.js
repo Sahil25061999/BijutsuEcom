@@ -10,7 +10,6 @@ const getCategoryData = (categoryDataList, categoryState) => {
     );
   });
 
-  console.log(data);
   //check if data is empty
   if (!data.length) {
     // if data empty is true, check if any category is active
