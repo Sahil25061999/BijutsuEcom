@@ -1,10 +1,11 @@
-export const Checkbox = ({ id, name, value }) => {
+export const Checkbox = ({ id, name, value, onChange }) => {
   return (
     <input
       name={name}
       id={id}
       type="checkbox"
       value={value}
+      onChange={onChange}
       className="checkbox"
     />
   );

@@ -48,9 +48,17 @@ const CardVertical = ({
   productOriginalPrice,
   wishlist,
   cart,
+  inStock,
 }) => {
   return (
     <div className="card">
+      {!inStock && (
+        <div className="card-text-overlay">
+          <span className="badge-text badge-lg badge-secondary">
+            Out of stock
+          </span>
+        </div>
+      )}
       <div className="card-image-container">
         <img
           className="card-image"
@@ -60,17 +68,17 @@ const CardVertical = ({
         />
       </div>
       <div className="card-head">
-        <h3 className="card-heading d-flex">
-          {cardHeading}
-          {cardBadge && (
-            <span class="badge-text badge-sm badge-accent">{cardBadge}</span>
-          )}
-        </h3>
+        <h3 className="card-heading d-flex">{cardHeading}</h3>
         <p className="card-subheading">{cardSubHeading}</p>
+        {cardBadge.rating && (
+          <span class="badge-text badge-sm badge-primary">
+            ⭐ {cardBadge.rating} {cardBadge.fast ? 'express delivery' : ''}
+          </span>
+        )}
       </div>
       <div className="card-content">
         <div className="card-pricing">
-          <h3 className="margin-r-5">{productDiscountedPrice}</h3>
+          <h3 className="margin-r-5">${productDiscountedPrice}</h3>
           <span className="card-og-price small-text strike-text">
             {productOriginalPrice}
           </span>
