@@ -5,9 +5,11 @@ import {
   CardCategory,
 } from '../../components/component_index';
 import { cardData } from '../../data/cardData/cardData';
+import { useScrollTop } from '../../hooks/useScrollTop';
 import './HomePage.css';
 
 export const HomePage = () => {
+  useScrollTop();
   return (
     <main className="home-container">
       {/* HERO SECTION  */}
@@ -17,7 +19,9 @@ export const HomePage = () => {
             Explore, sell and buy different digital art, photos, music.
           </h1>
           <div className="hero-button-container">
-            <button className="btn btn-white">Explore</button>
+            <Link to="/product-list">
+              <button className="btn btn-white">Explore</button>
+            </Link>
           </div>
         </div>
       </section>
@@ -33,36 +37,9 @@ export const HomePage = () => {
             <CardCategory
               key={items.id}
               imgSrc={items.imgSrc}
-              category={items.category}
+              category={items.productCategory.name}
             />
           ))}
-
-          <div className="card home-card">
-            <div className="card-hover home-card-hover">
-              <Link to="/product-list" className="btn btn-white">
-                Browse
-              </Link>
-            </div>
-            <div className="card-image-container">
-              <iframe
-                title="office"
-                src="https://giphy.com/embed/12XMGIWtrHBl5e"
-                width="480"
-                height="392"
-                frameborder="0"
-                className="giphy-embed"
-                allowfullscreen
-              ></iframe>
-              <p>
-                <a href="https://giphy.com/gifs/the-office-no-steve-carell-12XMGIWtrHBl5e">
-                  via GIPHY
-                </a>
-              </p>
-            </div>
-            <div className="card-head">
-              <h3 className="card-heading d-flex">Gif</h3>
-            </div>
-          </div>
         </section>
       </section>
 

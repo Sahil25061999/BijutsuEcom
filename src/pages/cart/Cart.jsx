@@ -1,11 +1,12 @@
 import React from 'react';
 import { CardHorizontal, PriceSection } from '../../components/component_index';
 import { useCart } from '../../context/cart-context';
-import { cardData } from '../../data/cardData/cardData';
+import { useScrollTop } from '../../hooks/useScrollTop';
 import './Cart.css';
 
 export const Cart = () => {
   const { itemInCart, cartData } = useCart();
+  useScrollTop();
   return (
     <main className="cart-body">
       <h2>

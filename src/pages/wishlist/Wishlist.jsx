@@ -1,11 +1,12 @@
 import './Wishlist.css';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { CardVertical } from '../../components/component_index';
-import { cardData } from '../../data/cardData/cardData';
 import { useWishlist } from '../../context/wishlist-context';
+import { useScrollTop } from '../../hooks/useScrollTop';
 
 export const Wishlist = () => {
   const { wishlistData, itemInWishlist } = useWishlist();
+  useScrollTop();
 
   return (
     <main className="wishlist-body">

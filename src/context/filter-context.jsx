@@ -17,6 +17,14 @@ const FilterProvider = ({ children }) => {
             digitalArt: !state.categoryState.digitalArt,
           },
         };
+      case 'ABSTRACT ART':
+        return {
+          ...state,
+          categoryState: {
+            ...state.categoryState,
+            abstractArt: !state.categoryState.abstractArt,
+          },
+        };
       case 'PHOTOGRAPHY':
         return {
           ...state,
@@ -109,6 +117,7 @@ const FilterProvider = ({ children }) => {
     otherCategoryState: { expressDelivery: false, includeAll: false },
     categoryState: {
       digitalArt: false,
+      abstractArt: false,
       photography: false,
       music: false,
       gif: false,

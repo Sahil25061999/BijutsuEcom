@@ -8,6 +8,7 @@ import { useFilter } from '../../context/filter-context';
 import { cardData } from '../../data/cardData/cardData';
 import { CardVertical, Filter } from '../../components/component_index';
 import './ProductList.css';
+import { useScrollTop } from '../../hooks/useScrollTop';
 
 export const ProductList = () => {
   const {
@@ -16,16 +17,17 @@ export const ProductList = () => {
     ratingState,
     otherCategoryState,
     categoryState,
+    filterDispatch,
   } = useFilter();
+
+  useScrollTop();
 
   const getFilteredData = (
     cardData,
     { getCategoryData, getRatingData, getSortedData }
   ) => {
     const dataFromCategory = getCategoryData(cardData, categoryState);
-    if (!dataFromCategory) {
-      return undefined;
-    }
+
     const dataFromSort = getSortedData(dataFromCategory, sortByState)
       .filter(({ expressDelivery }) =>
         otherCategoryState.expressDelivery ? expressDelivery : true

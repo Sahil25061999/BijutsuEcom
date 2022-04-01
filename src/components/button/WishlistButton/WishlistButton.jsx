@@ -12,7 +12,6 @@ export const WishlistButton = ({ id, wishlistState, fromHorizon }) => {
     setWishlistActiveState(!wishlistActiveState);
     // changes the wishlist from false to true and vice-versa for the clicked product.
     for (const item of cardData) {
-      console.log(item.id, id);
       if (item.id === id) {
         item.wishlist = !item.wishlist;
         break;

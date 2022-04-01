@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BuyButton, CartButton, WishlistButton } from '../../component_index';
 
 import '../ProductCard.css';
@@ -16,8 +16,6 @@ export const CardVertical = ({
   cart,
   inStock,
 }) => {
-  console.log(id);
-
   return (
     <div className="card">
       {!inStock && (

@@ -26,7 +26,7 @@ const cardData = [
   {
     id: uuid(),
     imgSrc: AbstractImage,
-    productCategory: { name: 'abstract image', digitalArt: true },
+    productCategory: { name: 'abstract art', abstractArt: true },
     cardHeading: 'Abstract Image',
     cardBadge: 'trending',
     cardSubHeading: 'by Rick Martin',
