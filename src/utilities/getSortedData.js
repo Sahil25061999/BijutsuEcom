@@ -9,6 +9,7 @@ const getSortedData = (sortDataList, sortBy) => {
       (a, b) => b.productDiscountedPrice - a.productDiscountedPrice
     );
   }
+
   return sortDataList;
 };
 

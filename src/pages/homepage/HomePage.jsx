@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  HomeCardVertical,
-  CategoryCard,
+  CardHomeVertical,
+  CardCategory,
 } from '../../components/component_index';
 import { cardData } from '../../data/cardData/cardData';
 import './HomePage.css';
@@ -30,7 +30,7 @@ export const HomePage = () => {
         </h2>
         <section className="cards-section home-cards-section">
           {cardData.map((items) => (
-            <CategoryCard
+            <CardCategory
               key={items.id}
               imgSrc={items.imgSrc}
               category={items.category}
@@ -72,7 +72,7 @@ export const HomePage = () => {
         <h2 className="h3 home-section-title text-center">Trending products</h2>
         <section className="cards-section home-cards-section">
           {cardData.map((item) => (
-            <HomeCardVertical
+            <CardHomeVertical
               key={item.id}
               imgSrc={item.imgSrc}
               category={item.category}

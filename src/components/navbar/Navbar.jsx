@@ -1,9 +1,14 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useWishlist } from '../../context/wishlist-context';
+import { useCart } from '../../context/cart-context';
 import { SearchBar } from '../component_index';
 
 import './Navbar.css';
 
 export const Navbar = () => {
+  const { itemInWishlist } = useWishlist();
+  const { itemInCart } = useCart();
   return (
     <>
       <header className="navbar home-navbar">
@@ -20,13 +25,23 @@ export const Navbar = () => {
                 <span className="fa-solid fa-globe navbar-icon"></span>
               </NavLink>
             </li>
-            <li className="navbar-item">
-              <NavLink to="/wishlist" className=" btn navbar-link ">
+            <li className="navbar-item ">
+              <NavLink
+                to="/wishlist"
+                className=" btn navbar-link badge-container "
+              >
+                {itemInWishlist > 0 && (
+                  <div className="badge badge-round-md">{itemInWishlist}</div>
+                )}
+
                 <span className="fa-solid fa-heart navbar-icon"></span>
               </NavLink>
             </li>
             <li className="navbar-item">
-              <NavLink to="/cart" className=" btn navbar-link ">
+              <NavLink to="/cart" className=" btn navbar-link badge-container">
+                {itemInCart > 0 && (
+                  <div className="badge badge-round-md">{itemInCart}</div>
+                )}
                 <span className="fa-solid fa-cart-shopping navbar-icon"></span>
               </NavLink>
             </li>

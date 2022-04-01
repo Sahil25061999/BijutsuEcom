@@ -19,13 +19,6 @@
   padding: 8px 5rem;
 }
 
-.navbar-item .badge {
-  height: 8px;
-  width: 8px;
-  top: 0;
-  right: 0;
-}
-
 @media only screen and (max-width: 58.75em) {
   .navbar-icon {
     font-size: 14px;
