@@ -1,9 +1,13 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useCart, useWishlist, useFilter } from '../../context/context-index';
 import { SearchBar } from '../component_index';
-
 import './Navbar.css';
 
 export const Navbar = () => {
+  const { itemInWishlist } = useWishlist();
+  const { itemInCart } = useCart();
+  const { filterDispatch } = useFilter();
   return (
     <>
       <header className="navbar home-navbar">
@@ -16,17 +20,54 @@ export const Navbar = () => {
         <nav className="navbar-menu">
           <ul className="navbar-list list-style-none">
             <li className="navbar-item">
-              <NavLink to="/product-list" className=" btn navbar-link ">
+              <NavLink
+                to="/product-list"
+                className=" btn navbar-link "
+                onClick={() => {
+                  filterDispatch({
+                    type: 'CLEAR',
+                    payload: {
+                      rangeState: {
+                        defaultValue: 0,
+                        start: 10,
+                        end: 35000,
+                      },
+                      sortByState: null,
+                      ratingState: null,
+                      otherCategoryState: {
+                        expressDelivery: false,
+                        includeAll: false,
+                      },
+                      categoryState: {
+                        digitalArt: false,
+                        photography: false,
+                        music: false,
+                        gif: false,
+                      },
+                    },
+                  });
+                }}
+              >
                 <span className="fa-solid fa-globe navbar-icon"></span>
               </NavLink>
             </li>
-            <li className="navbar-item">
-              <NavLink to="/wishlist" className=" btn navbar-link ">
+            <li className="navbar-item ">
+              <NavLink
+                to="/wishlist"
+                className=" btn navbar-link badge-container "
+              >
+                {itemInWishlist > 0 && (
+                  <div className="badge badge-round-md">{itemInWishlist}</div>
+                )}
+
                 <span className="fa-solid fa-heart navbar-icon"></span>
               </NavLink>
             </li>
             <li className="navbar-item">
-              <NavLink to="/cart" className=" btn navbar-link ">
+              <NavLink to="/cart" className=" btn navbar-link badge-container">
+                {itemInCart > 0 && (
+                  <div className="badge badge-round-md">{itemInCart}</div>
+                )}
                 <span className="fa-solid fa-cart-shopping navbar-icon"></span>
               </NavLink>
             </li>

@@ -1,4 +1,4 @@
-import { useFilter } from '../../context/filter-context';
+import { useFilter } from '../../context/context-index';
 
 import './Filter.css';
 const Filter = () => {
@@ -11,7 +11,7 @@ const Filter = () => {
     filterDispatch,
   } = useFilter();
 
-  const { digitalArt, photography, music, gif } = categoryState;
+  const { digitalArt, abstractArt, photography, music, gif } = categoryState;
 
   const { expressDelivery, includeAll } = otherCategoryState;
   const handleClearBtn = (e) => {
@@ -32,6 +32,7 @@ const Filter = () => {
         },
         categoryState: {
           digitalArt: false,
+          abstractArt: false,
           photography: false,
           music: false,
           gif: false,
@@ -86,6 +87,19 @@ const Filter = () => {
                 checked={digitalArt}
               />
               Digital Art
+            </label>
+            <label className="margin-b-5">
+              <input
+                type="checkbox"
+                onChange={() => {
+                  filterDispatch({ type: 'ABSTRACT ART' });
+                }}
+                id="abstract_art_checkbox"
+                name="abstract_art_checkbox"
+                value="Abstract art"
+                checked={abstractArt}
+              />
+              Abstract Art
             </label>
 
             <label className="margin-b-5">

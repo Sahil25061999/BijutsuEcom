@@ -1,13 +1,13 @@
 export { PriceSection } from './priceSection/PriceSection';
-export { BuyButton, CartButton, WishlistButton } from './button/Button';
+export { CartButton } from './button/CartButton/CartButton';
+export { WishlistButton } from './button/WishlistButton/WishlistButton';
+export { BuyButton } from './button/BuyButton/BuyButton';
 export { Filter } from './filter/Filter';
 export { Footer } from './footer/Footer';
-export { Checkbox, RadioButton } from './input/Input';
+export { RadioButton } from './input/Input';
 export { Navbar } from './navbar/Navbar';
-export {
-  HomeCardVertical,
-  CategoryCard,
-  CardVertical,
-} from './productCard/ProductCard';
-export { HorizontalCard } from './productCard/HorizontalCard';
+export { CardVertical } from './productCard/CardVertical/CardVertical';
+export { CardCategory } from './productCard/CardCategory/CardCategory';
+export { CardHomeVertical } from './productCard/CardHomeVertical/CardHomeVertical';
+export { CardHorizontal } from './productCard/CardHorizontal/CardHorizontal';
 export { SearchBar } from './searchBar/SearchBar';

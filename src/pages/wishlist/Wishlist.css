@@ -8,6 +8,7 @@
 .wishlist-body {
   width: 100vw;
   height: 100%;
+
   margin: 4rem 0;
   flex-direction: column;
 }
@@ -17,6 +18,8 @@
 }
 
 .wishlist {
+  min-height: 80vh;
+  height: 100%;
   flex-wrap: wrap;
 }
 

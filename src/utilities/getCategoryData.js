@@ -18,7 +18,7 @@ const getCategoryData = (categoryDataList, categoryState) => {
     });
 
     if (!categoryIsActive) {
-      return;
+      return [];
     }
     // since data empty is true and no category is active return categoryDatalist(original data without any filter)
 

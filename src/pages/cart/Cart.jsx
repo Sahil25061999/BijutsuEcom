@@ -1,28 +1,23 @@
-import { HorizontalCard, PriceSection } from '../../components/component_index';
-import { cardData } from '../../data/cardData/cardData';
+import React from 'react';
+import { CardHorizontal, PriceSection } from '../../components/component_index';
+import { useCart } from '../../context/cart-context';
+import { useScrollTop } from '../../hooks/useScrollTop';
 import './Cart.css';
 
 export const Cart = () => {
+  const { itemInCart, cartData } = useCart();
+  useScrollTop();
   return (
     <main className="cart-body">
       <h2>
-        My Cart <span className="cart-count">(3)</span>
+        My Cart <span className="cart-count">({itemInCart})</span>
       </h2>
       <section className="cart-product-list">
-        {cardData.map((item) => (
-          <HorizontalCard
-            key={item.id}
-            imgSrc={item.imgSrc}
-            category={item.category}
-            cardHeading={item.cardHeading}
-            cardSubHeading={item.cardSubHeading}
-            cardBadge={item.cardBadge}
-            productDiscountedPrice={item.productDiscountedPrice}
-            productOriginalPrice={item.productOriginalPrice}
-            wishlist={item.wishlist}
-            cart={item.cart}
-          />
-        ))}
+        {itemInCart ? (
+          cartData.map((item) => <CardHorizontal key={item.id} item={item} />)
+        ) : (
+          <h2 className="empty-list">No Data Found</h2>
+        )}
       </section>
       <PriceSection />
     </main>
