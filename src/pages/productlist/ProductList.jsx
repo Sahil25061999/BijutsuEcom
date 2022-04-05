@@ -58,21 +58,7 @@ export const ProductList = () => {
         <section className="product-list">
           {filteredList && filteredList.length ? (
             filteredList.map((item) => (
-              <CardVertical
-                key={item._id}
-                item={item}
-                // id={item.id}
-                // imgSrc={item.imgSrc}
-                // category={item.productCategory.name}
-                // cardHeading={item.cardHeading}
-                // cardSubHeading={item.cardSubHeading}
-                // cardBadge={{ rating: item.rating, fast: item.expressDelivery }}
-                // productDiscountedPrice={item.productDiscountedPrice}
-                // productOriginalPrice={item.productOriginalPrice}
-                // wishlist={item.wishlist}
-                // cart={item.cart}
-                // inStock={item.inStock}
-              />
+              <CardVertical key={item._id} item={item} />
             ))
           ) : (
             <h2 className="empty-list">No Data Found</h2>
