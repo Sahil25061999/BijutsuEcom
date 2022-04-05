@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   getCategoryData,
   getRatingData,
   getSortedData,
 } from '../../utilities/utilities-index';
-import { useFilter } from '../../context/filter-context';
+import { useFilter } from '../../context/context-index';
 import { cardData } from '../../data/cardData/cardData';
 import { CardVertical, Filter } from '../../components/component_index';
 import './ProductList.css';
@@ -17,7 +17,6 @@ export const ProductList = () => {
     ratingState,
     otherCategoryState,
     categoryState,
-    filterDispatch,
   } = useFilter();
 
   useScrollTop();
@@ -60,18 +59,19 @@ export const ProductList = () => {
           {filteredList && filteredList.length ? (
             filteredList.map((item) => (
               <CardVertical
-                key={item.id}
-                id={item.id}
-                imgSrc={item.imgSrc}
-                category={item.productCategory.name}
-                cardHeading={item.cardHeading}
-                cardSubHeading={item.cardSubHeading}
-                cardBadge={{ rating: item.rating, fast: item.expressDelivery }}
-                productDiscountedPrice={item.productDiscountedPrice}
-                productOriginalPrice={item.productOriginalPrice}
-                wishlist={item.wishlist}
-                cart={item.cart}
-                inStock={item.inStock}
+                key={item._id}
+                item={item}
+                // id={item.id}
+                // imgSrc={item.imgSrc}
+                // category={item.productCategory.name}
+                // cardHeading={item.cardHeading}
+                // cardSubHeading={item.cardSubHeading}
+                // cardBadge={{ rating: item.rating, fast: item.expressDelivery }}
+                // productDiscountedPrice={item.productDiscountedPrice}
+                // productOriginalPrice={item.productOriginalPrice}
+                // wishlist={item.wishlist}
+                // cart={item.cart}
+                // inStock={item.inStock}
               />
             ))
           ) : (

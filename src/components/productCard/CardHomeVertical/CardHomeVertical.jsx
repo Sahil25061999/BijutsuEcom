@@ -1,15 +1,16 @@
 import React from 'react';
 import '../ProductCard.css';
 
-export const CardHomeVertical = ({
-  imgSrc,
-  category,
-  cardHeading,
-  cardSubHeading,
-  cardContent,
-  productDiscountedPrice,
-  productOriginalPrice,
-}) => {
+export const CardHomeVertical = ({ item }) => {
+  const {
+    imgSrc,
+    category,
+    cardHeading,
+    cardSubHeading,
+    cardContent,
+    productDiscountedPrice,
+    productOriginalPrice,
+  } = item;
   return (
     <div className="card">
       <div className="card-image-container">

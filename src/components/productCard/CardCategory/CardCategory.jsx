@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { useFilter } from '../../../context/filter-context';
 import '../ProductCard.css';
 
-export const CardCategory = ({ imgSrc, category }) => {
+export const CardCategory = ({ item }) => {
+  const {
+    imgSrc,
+    productCategory: { name: category },
+  } = item;
   const { filterDispatch } = useFilter();
   return (
     <div className="card home-card">

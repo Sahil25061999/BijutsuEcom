@@ -14,22 +14,7 @@ export const Cart = () => {
       </h2>
       <section className="cart-product-list">
         {itemInCart ? (
-          cartData.map((item) => (
-            <CardHorizontal
-              key={item.id}
-              id={item.id}
-              imgSrc={item.imgSrc}
-              category={item.category}
-              cardHeading={item.cardHeading}
-              cardSubHeading={item.cardSubHeading}
-              cardBadge={item.cardBadge}
-              productDiscountedPrice={item.productDiscountedPrice}
-              productOriginalPrice={item.productOriginalPrice}
-              wishlist={item.wishlist}
-              quantity={item.quantity}
-              cart={item.cart}
-            />
-          ))
+          cartData.map((item) => <CardHorizontal key={item.id} item={item} />)
         ) : (
           <h2 className="empty-list">No Data Found</h2>
         )}

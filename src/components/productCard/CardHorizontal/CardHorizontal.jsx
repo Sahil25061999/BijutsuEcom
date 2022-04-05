@@ -4,19 +4,20 @@ import { WishlistButton } from '../../component_index';
 import { cardData } from '../../../data/cardData/cardData';
 
 import './CardHorizontal.css';
-export const CardHorizontal = ({
-  id,
-  imgSrc,
-  category,
-  cardHeading,
-  cardBadge,
-  cardSubHeading,
-  productDiscountedPrice,
-  productOriginalPrice,
-  wishlist,
-  quantity,
-  cart,
-}) => {
+export const CardHorizontal = ({ item }) => {
+  const {
+    id,
+    imgSrc,
+    category,
+    cardHeading,
+    cardBadge,
+    cardSubHeading,
+    productDiscountedPrice,
+    productOriginalPrice,
+    wishlist,
+    quantity,
+    cart,
+  } = item;
   const { cartData, setCartData } = useCart();
   const [decrementBtnState, setDecrementBtnState] = useState(false);
   const [incrementBtnState, setIncrementBtnState] = useState(false);
@@ -65,7 +66,6 @@ export const CardHorizontal = ({
     }
     setCartData([...cardData.filter((item) => item.cart)]);
   };
-  // useEffect(() => {}, [decrementBtnState, incrementBtnState]);
 
   return (
     <div className="card cart-card card-horizontal">

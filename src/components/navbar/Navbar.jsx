@@ -1,11 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useWishlist } from '../../context/wishlist-context';
-import { useCart } from '../../context/cart-context';
+import { useCart, useWishlist, useFilter } from '../../context/context-index';
 import { SearchBar } from '../component_index';
-
 import './Navbar.css';
-import { useFilter } from '../../context/filter-context';
 
 export const Navbar = () => {
   const { itemInWishlist } = useWishlist();

@@ -33,12 +33,8 @@ export const HomePage = () => {
           Browse Top catgories
         </h2>
         <section className="cards-section home-cards-section">
-          {cardData.map((items) => (
-            <CardCategory
-              key={items.id}
-              imgSrc={items.imgSrc}
-              category={items.productCategory.name}
-            />
+          {cardData.map((item) => (
+            <CardCategory key={item.id} item={item} />
           ))}
         </section>
       </section>
@@ -49,17 +45,7 @@ export const HomePage = () => {
         <h2 className="h3 home-section-title text-center">Trending products</h2>
         <section className="cards-section home-cards-section">
           {cardData.map((item) => (
-            <CardHomeVertical
-              key={item.id}
-              imgSrc={item.imgSrc}
-              category={item.category}
-              cardHeading={item.cardHeading}
-              cardBadge={item.cardBadge}
-              cardSubHeading={item.cardSubHeading}
-              cardContent={item.cardContent}
-              productDiscountedPrice={item.productDiscountedPrice}
-              productOriginalPrice={item.productOriginalPrice}
-            />
+            <CardHomeVertical key={item.id} item={item} />
           ))}
         </section>
       </section>

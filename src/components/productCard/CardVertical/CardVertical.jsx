@@ -3,19 +3,21 @@ import { BuyButton, CartButton, WishlistButton } from '../../component_index';
 
 import '../ProductCard.css';
 
-export const CardVertical = ({
-  id,
-  imgSrc,
-  category,
-  cardHeading,
-  cardBadge,
-  cardSubHeading,
-  productDiscountedPrice,
-  productOriginalPrice,
-  wishlist,
-  cart,
-  inStock,
-}) => {
+export const CardVertical = ({ item }) => {
+  const {
+    id,
+    imgSrc,
+    category,
+    cardHeading,
+    rating,
+    expressDelivery: fast,
+    cardSubHeading,
+    productDiscountedPrice,
+    productOriginalPrice,
+    wishlist,
+    cart,
+    inStock,
+  } = item;
   return (
     <div className="card">
       {!inStock && (
@@ -37,9 +39,9 @@ export const CardVertical = ({
         <h3 className="card-heading d-flex">{cardHeading}</h3>
         <p className="card-subheading">
           {cardSubHeading}
-          {cardBadge.rating && (
+          {rating && (
             <span className="badge-text badge-sm badge-primary">
-              ⭐{cardBadge.rating} {cardBadge.fast ? '| express delivery' : ''}
+              ⭐ {rating} {fast ? '| express delivery' : ''}
             </span>
           )}
         </p>

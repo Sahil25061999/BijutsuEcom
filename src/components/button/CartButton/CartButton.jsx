@@ -12,12 +12,12 @@ export const CartButton = ({ cartState, id }) => {
     for (const item of cardData) {
       if (item.id === id) {
         item.cart = !item.cart;
-        console.log(item);
+
         break;
       }
     }
-    //updates the data to be displayed in wishlist page
-    console.log('reached');
+    //updates the data to be displayed in cart page
+
     setCartData([...cardData.filter((item) => item.cart)]);
   };
 
