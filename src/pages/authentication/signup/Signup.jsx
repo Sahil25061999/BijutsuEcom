@@ -1,9 +1,11 @@
 import React, { useState, useReducer } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { postSignup } from '../../../api-call/api-index';
 import '../Authentication.css';
 import { useToken } from '../../../context/context_index';
 import { checkemail, checkpassword } from '../../../utilities/utilities-index';
+import { useError } from '../../../reducer/useError';
 export const Signup = () => {
   const [user, setUser] = useState({
     fullname: '',
@@ -15,44 +17,12 @@ export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const errorReducerFunc = (state, action) => {
-    switch (action.type) {
-      case 'EMAIL_ERROR':
-        return { ...state, emailError: action.payload };
-      case 'PASSWORD_ERROR':
-        return { ...state, passwordError: action.payload };
-      case 'CONFIRM_PASSWORD_ERROR':
-        return { ...state, confirmPasswordError: action.payload };
-      default:
-        return { ...state };
-    }
-  };
-
-  const [error, errorDispatch] = useReducer(errorReducerFunc, {
-    emailError: '',
-    passwordError: '',
-    confirmPasswordError: '',
-  });
+  const [error, errorDispatch] = useError();
 
   const { emailError, passwordError, confirmPasswordError } = error;
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
-  };
-
-  const checkemail = (emailToCheck) => {
-    const emailRegex = /^[a-zA-z0-9\.-]+@[a-z0-9.-]+.[a-z]{2,8}$/;
-    if (emailRegex.test(emailToCheck)) {
-      return true;
-    }
-    return false;
-  };
-  const checkpassword = (passwordToCheck) => {
-    const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
-    if (passwordRegex.test(passwordToCheck)) {
-      return true;
-    }
-    return false;
   };
 
   const handleEmail = (e) => {
@@ -97,23 +67,13 @@ export const Signup = () => {
       user.password.length === 0 ||
       user.confirmPassword.length === 0
     ) {
-      console.log('execute');
       return;
     }
-
-    try {
-      const response = await axios.post(`/api/auth/signup`, {
-        name: user.fullname,
-        email: user.email,
-        password: user.password,
-      });
-      // saving the encodedToken in the localStorage
+    const response = await postSignup(user.fullname, user.email, user.password);
+    if (response.status === 201) {
       localStorage.setItem('token', response.data.encodedToken);
       setToken(localStorage.getItem('token'));
-
       navigate('/');
-    } catch (error) {
-      console.log(error);
     }
   };
   return (

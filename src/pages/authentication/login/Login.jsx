@@ -3,17 +3,24 @@ import axios from 'axios';
 import '../Authentication.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart, useToken, useWishlist } from '../../../context/context_index';
+import {
+  postLogin,
+  getWishlistData,
+  getCartData,
+} from '../../../api-call/api-index';
+import { useError } from '../../../reducer/useError';
 
 export const Login = () => {
   const [user, setUser] = useState({
     loginEmail: '',
     loginPassword: '',
   });
-  const [error, setError] = useState(false);
+  const [error, errorDispatch] = useError();
+  const { emailError, passwordError } = error;
   const [showPassword, setShowPassword] = useState(false);
   const { setCartData } = useCart();
   const { setWishlistData } = useWishlist();
-  const { token, setToken } = useToken();
+  const { setToken } = useToken();
   const navigate = useNavigate();
 
   const handleShowPassword = () => {
@@ -22,35 +29,29 @@ export const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await axios.post('/api/auth/login', {
-        email: user.loginEmail,
-        password: user.loginPassword,
+    const response = await postLogin(user.loginEmail, user.loginPassword);
+    if (response.status === 404) {
+      errorDispatch({
+        type: 'EMAIL_ERROR',
+        payload: 'email doesnt exist',
       });
-      console.log(response);
-      if (!Object.keys(response.data).length) {
-        setError(true);
-      }
-      if (response.data.encodedToken) {
-        localStorage.setItem('token', response.data.encodedToken);
-        setToken(localStorage.getItem('token'));
+      return;
+    }
+    if (!Object.keys(response.data).length) {
+      errorDispatch({ type: 'PASSWORD_ERROR', payload: 'check password' });
+    }
+    if (response.data.encodedToken) {
+      localStorage.setItem('token', response.data.encodedToken);
+      setToken(localStorage.getItem('token'));
 
-        const dataFromCart = await axios.get('/api/user/cart', {
-          headers: { authorization: response.data.encodedToken },
-        });
-        const dataFromWishlist = await axios.get('/api/user/wishlist', {
-          headers: { authorization: response.data.encodedToken },
-        });
-        setCartData([...dataFromCart.data.cart]);
-        setWishlistData([...dataFromWishlist.data.wishlist]);
-        navigate('/');
-      }
-    } catch (error) {
-      if (error.response.status === 404) {
-        setError(true);
-      }
-      console.log(error);
+      const dataFromCart = await getCartData(response.data.encodedToken);
+      const dataFromWishlist = await getWishlistData(
+        response.data.encodedToken
+      );
+
+      setCartData([...dataFromCart.data.cart]);
+      setWishlistData([...dataFromWishlist.data.wishlist]);
+      navigate('/');
     }
   };
 
@@ -62,12 +63,7 @@ export const Login = () => {
         <div className="form-inputs">
           <div className="input-container">
             <label htmlFor="email">
-              Email{' '}
-              {error && (
-                <span className="text-center error-msg">
-                  Check email before login
-                </span>
-              )}
+              Email <span className="text-center error-msg">{emailError}</span>
             </label>
             <input
               id="email"
@@ -79,14 +75,7 @@ export const Login = () => {
           <div className="input-container">
             <label htmlFor="password">
               Password{' '}
-              {error && (
-                <span
-                  style={{ marginTop: '5px', color: 'red' }}
-                  className="text-center"
-                >
-                  Check password before login
-                </span>
-              )}
+              <span className="text-center error-msg">{passwordError}</span>
             </label>
             <input
               id="password"
