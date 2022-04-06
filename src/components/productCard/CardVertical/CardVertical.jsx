@@ -5,7 +5,7 @@ import '../ProductCard.css';
 
 export const CardVertical = ({ item }) => {
   const {
-    id,
+    _id: id,
     imgSrc,
     category,
     cardHeading,

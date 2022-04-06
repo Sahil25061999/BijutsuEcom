@@ -44,6 +44,13 @@
   width: 100%;
   margin: 4px;
 }
+.btn-deactive,
+.btn-deactive:hover {
+  background-color: rgb(168, 168, 168);
+  border-color: rgb(168, 168, 168);
+  color: rgb(78, 77, 77);
+  box-shadow: none;
+}
 
 @media only screen and (max-width: 75em) {
   .cart-card {

@@ -8,13 +8,13 @@ export const Footer = () => {
         <h2>About us</h2>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
-            <a href="#">Our Story</a>
+            <span>Our Story</span>
           </li>
           <li className="footer-list-items">
-            <a href="#">Blogs</a>
+            <span>Blogs</span>
           </li>
           <li className="footer-list-items">
-            <a href="#">Career</a>
+            <span>Career</span>
           </li>
         </ul>
       </section>
@@ -22,13 +22,13 @@ export const Footer = () => {
         <h2>Support</h2>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
-            <a href="#">FAQ</a>
+            <span>FAQ</span>
           </li>
           <li className="footer-list-items">
-            <a href="#">Contact Us</a>
+            <span>Contact Us</span>
           </li>
           <li className="footer-list-items">
-            <a href="#">Return & Refund Policy</a>
+            <span>Return & Refund Policy</span>
           </li>
         </ul>
       </section>
@@ -36,13 +36,13 @@ export const Footer = () => {
         <h2>Socials</h2>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
-            <a href="#">Instagram</a>
+            <span>Instagram</span>
           </li>
           <li className="footer-list-items">
-            <a href="#">Twitter</a>
+            <span>Twitter</span>
           </li>
           <li className="footer-list-items">
-            <a href="#">Facebook</a>
+            <span>Facebook</span>
           </li>
         </ul>
       </section>

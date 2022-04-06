@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useFilter } from '../../../context/filter-context';
+import { useFilter } from '../../../context/context_index';
 import '../ProductCard.css';
 
 export const CardCategory = ({ item }) => {
@@ -46,7 +46,12 @@ export const CardCategory = ({ item }) => {
         </Link>
       </div>
       <div className="card-image-container">
-        <img className="card-image" src={imgSrc} loading="lazy" />
+        <img
+          alt="category_image"
+          className="card-image"
+          src={imgSrc}
+          loading="lazy"
+        />
       </div>
       <div className="card-head">
         <h3 className="card-heading d-flex">{category}</h3>

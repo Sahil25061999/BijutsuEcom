@@ -1,4 +1,4 @@
-import { useFilter } from '../../context/context-index';
+import { useFilter } from '../../context/context_index';
 
 import './Filter.css';
 const Filter = () => {
