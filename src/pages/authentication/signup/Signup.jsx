@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Authentication.css';
 import { useToken } from '../../../context/context_index';
-
+import { checkemail, checkpassword } from '../../../utilities/utilities-index';
 export const Signup = () => {
   const [user, setUser] = useState({
     fullname: '',
@@ -13,6 +13,29 @@ export const Signup = () => {
   });
   const { setToken } = useToken();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const errorReducerFunc = (state, action) => {
+    switch (action.type) {
+      case 'EMAIL_ERROR':
+        return { ...state, emailError: action.payload };
+      case 'PASSWORD_ERROR':
+        return { ...state, passwordError: action.payload };
+      case 'CONFIRM_PASSWORD_ERROR':
+        return { ...state, confirmPasswordError: action.payload };
+      default:
+        return { ...state };
+    }
+  };
+
+  const [error, errorDispatch] = useReducer(errorReducerFunc, {
+    emailError: '',
+    passwordError: '',
+    confirmPasswordError: '',
+  });
+
+  const { emailError, passwordError, confirmPasswordError } = error;
+
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -31,29 +54,51 @@ export const Signup = () => {
     }
     return false;
   };
-  const navigate = useNavigate();
+
+  const handleEmail = (e) => {
+    if (checkemail(e.target.value)) {
+      setUser({ ...user, email: e.target.value });
+      errorDispatch({ type: 'EMAIL_ERROR', payload: '' });
+      return;
+    }
+    errorDispatch({ type: 'EMAIL_ERROR', payload: 'Input valid email' });
+    setUser({ ...user, email: '' });
+  };
+
+  const handlePassword = (e) => {
+    if (checkpassword(e.target.value)) {
+      setUser({ ...user, password: e.target.value });
+      errorDispatch({ type: 'PASSWORD_ERROR', payload: '' });
+      return;
+    }
+    errorDispatch({ type: 'PASSWORD_ERROR', payload: 'Input valid password' });
+    setUser({ ...user, password: '' });
+  };
+
+  const handleConfirmPassword = (e) => {
+    if (e.target.value === user.password) {
+      setUser({ ...user, confirmPassword: e.target.value });
+      errorDispatch({ type: 'CONFIRM_PASSWORD_ERROR', payload: '' });
+      return;
+    }
+
+    errorDispatch({
+      type: 'CONFIRM_PASSWORD_ERROR',
+      payload: "Password don't match",
+    });
+    setUser({ ...user, confirmPassword: '' });
+  };
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (
-      !user.fullname &&
-      !user.email &&
-      !user.password &&
-      !user.confirmPassword
+      user.fullname.length === 0 ||
+      user.email.length === 0 ||
+      user.password.length === 0 ||
+      user.confirmPassword.length === 0
     ) {
+      console.log('execute');
       return;
-    }
-    if (user.password !== user.confirmPassword) {
-      console.log('password dont match');
-      return;
-    }
-    const emailvalid = checkemail(user.email);
-    if (!emailvalid) {
-      console.log(user.email);
-      console.log('not valid');
-      return;
-    }
-    const passwordvalid = checkpassword(user.password);
-    if (!passwordvalid) {
     }
 
     try {
@@ -87,9 +132,11 @@ export const Signup = () => {
             />
           </div>
           <div className="input-container">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">
+              Email<span className="error-msg"> {emailError}</span>
+            </label>
             <input
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              onChange={handleEmail}
               id="email"
               className="textbox"
               type="email"
@@ -97,9 +144,11 @@ export const Signup = () => {
             />
           </div>
           <div className="input-container">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">
+              Password<span className="error-msg"> {passwordError}</span>
+            </label>
             <input
-              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              onChange={handlePassword}
               id="password"
               className="textbox"
               type={showPassword ? 'text' : 'password'}
@@ -113,14 +162,15 @@ export const Signup = () => {
             ></span>
           </div>
           <div className="input-container">
-            <label htmlFor="confirm-password">Confirm Password</label>
+            <label htmlFor="confirm-password">
+              Confirm Password{' '}
+              <span className="error-msg">{confirmPasswordError}</span>
+            </label>
             <input
               id="confirm-password"
               className="textbox"
               type="password"
-              onChange={(e) =>
-                setUser({ ...user, confirmPassword: e.target.value })
-              }
+              onChange={handleConfirmPassword}
             />
             <span className="fa-solid fa-eye password-eye-icon confirm-password-eye"></span>
           </div>

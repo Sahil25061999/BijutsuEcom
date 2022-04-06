@@ -64,10 +64,7 @@ export const Login = () => {
             <label htmlFor="email">
               Email{' '}
               {error && (
-                <span
-                  style={{ marginTop: '5px', color: 'red' }}
-                  className="text-center"
-                >
+                <span className="text-center error-msg">
                   Check email before login
                 </span>
               )}
