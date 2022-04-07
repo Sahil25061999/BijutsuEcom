@@ -1,13 +1,20 @@
 import React, { useContext, createContext, useState, useEffect } from 'react';
-import { cardData } from '../data/cardData/cardData';
+
+import { useToken } from './context_index';
+import { getWishlistData } from '../api-call/api-index';
 const WishlistContext = createContext(null);
 
 const WishlistProvider = ({ children }) => {
   const [wishlistData, setWishlistData] = useState([]);
   const itemInWishlist = wishlistData.length;
-
+  const { token } = useToken();
   useEffect(() => {
-    setWishlistData(cardData.filter((item) => item.wishlist));
+    if (token) {
+      (async () => {
+        const response = await getWishlistData(token);
+        console.log(response);
+      })();
+    }
   }, []);
 
   return (

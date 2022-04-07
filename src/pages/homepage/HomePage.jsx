@@ -4,11 +4,12 @@ import {
   CardHomeVertical,
   CardCategory,
 } from '../../components/component_index';
-import { cardData } from '../../data/cardData/cardData';
+import { useProductList } from '../../context/context_index';
 import { useScrollTop } from '../../hooks/useScrollTop';
 import './HomePage.css';
 
 export const HomePage = () => {
+  const { productList } = useProductList();
   useScrollTop();
   return (
     <main className="home-container">
@@ -33,8 +34,8 @@ export const HomePage = () => {
           Browse Top catgories
         </h2>
         <section className="cards-section home-cards-section">
-          {cardData.map((item) => (
-            <CardCategory key={item.id} item={item} />
+          {productList.map((item) => (
+            <CardCategory key={item._id} item={item} />
           ))}
         </section>
       </section>
@@ -44,8 +45,8 @@ export const HomePage = () => {
       <section className="home-section categories-section">
         <h2 className="h3 home-section-title text-center">Trending products</h2>
         <section className="cards-section home-cards-section">
-          {cardData.map((item) => (
-            <CardHomeVertical key={item.id} item={item} />
+          {productList.map((item) => (
+            <CardHomeVertical key={item._id} item={item} />
           ))}
         </section>
       </section>

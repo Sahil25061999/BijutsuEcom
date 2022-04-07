@@ -14,7 +14,7 @@ export const Cart = () => {
       </h2>
       <section className="cart-product-list">
         {itemInCart ? (
-          cartData.map((item) => <CardHorizontal key={item.id} item={item} />)
+          cartData.map((item) => <CardHorizontal key={item._id} item={item} />)
         ) : (
           <h2 className="empty-list">No Data Found</h2>
         )}

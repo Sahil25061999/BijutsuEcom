@@ -4,13 +4,13 @@ import {
   getRatingData,
   getSortedData,
 } from '../../utilities/utilities-index';
-import { useFilter } from '../../context/context-index';
-import { cardData } from '../../data/cardData/cardData';
+import { useFilter, useProductList } from '../../context/context_index';
 import { CardVertical, Filter } from '../../components/component_index';
 import './ProductList.css';
 import { useScrollTop } from '../../hooks/useScrollTop';
 
 export const ProductList = () => {
+  const { productList } = useProductList();
   const {
     rangeState,
     sortByState,
@@ -45,7 +45,7 @@ export const ProductList = () => {
       : undefined;
   };
 
-  const filteredList = getFilteredData(cardData, {
+  const filteredList = getFilteredData(productList, {
     getCategoryData,
     getRatingData,
     getSortedData,

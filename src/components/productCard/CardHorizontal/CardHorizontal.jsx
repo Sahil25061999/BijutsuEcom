@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useCart } from '../../../context/cart-context';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useCart } from '../../../context/context_index';
 import { WishlistButton } from '../../component_index';
-import { cardData } from '../../../data/cardData/cardData';
-
+import { postCartQuantity } from '../../../api-call/api-index';
 import './CardHorizontal.css';
 export const CardHorizontal = ({ item }) => {
   const {
-    id,
+    _id: id,
     imgSrc,
     category,
     cardHeading,
@@ -15,56 +15,54 @@ export const CardHorizontal = ({ item }) => {
     productDiscountedPrice,
     productOriginalPrice,
     wishlist,
-    quantity,
+    qty: quantity,
     cart,
   } = item;
+  const [disableInc, setInc] = useState(false);
+  const [disableDec, setDec] = useState(false);
   const { cartData, setCartData } = useCart();
-  const [decrementBtnState, setDecrementBtnState] = useState(false);
-  const [incrementBtnState, setIncrementBtnState] = useState(false);
-  const handleIncrement = () => {
-    for (const item of cartData) {
-      if (item.id === id) {
-        if (item.inStock === 0) {
-          setIncrementBtnState(true);
-          break;
-        }
+  const token = localStorage.getItem('token');
 
-        setDecrementBtnState(false);
-        item.quantity += 1;
-        item.inStock -= 1;
-        item.productDiscountedPrice *= item.quantity;
-        item.productOriginalPrice *= item.quantity;
-        break;
-      }
-    }
-    setCartData([...cartData]);
-  };
-  const handleDecrement = () => {
+  const updateProduct = async (value) => {
     for (const item of cartData) {
-      if (item.id === id) {
-        if (item.quantity === 1) {
-          setDecrementBtnState(true);
-          break;
+      if (item._id === id) {
+        if (item.qty <= 1 && value === 'decrement') {
+          setDec(true);
+          return;
         }
-        setIncrementBtnState(false);
-        item.productDiscountedPrice /= item.quantity;
-        item.productOriginalPrice /= item.quantity;
-        item.quantity -= 1;
-        item.inStock += 1;
+        if (item.qty >= item.inStock && value === 'increment') {
+          setInc(true);
+          return;
+        }
+        setDec(false);
+        setInc(false);
         break;
       }
     }
-    setCartData([...cartData]);
+    const response = await postCartQuantity(id, token, value);
+    setCartData(
+      [
+        ...response.data.cart.map((item) => {
+          if (item._id === id) {
+            item.productDiscountedPrice *= item.qty;
+            item.productOriginalPrice *= item.qty;
+          }
+          return item;
+        }),
+      ].reverse()
+    );
   };
-  const handleRemove = () => {
-    for (const item of cartData) {
-      if (item.id === id) {
-        item.cart = !item.cart;
-        item.quantity = 1;
-        break;
-      }
-    }
-    setCartData([...cardData.filter((item) => item.cart)]);
+  const handleIncrement = async () => {
+    await updateProduct('increment');
+  };
+  const handleDecrement = async () => {
+    await updateProduct('decrement');
+  };
+  const handleRemove = async () => {
+    const { data } = await axios.delete(`/api/user/cart/${id}`, {
+      headers: { authorization: token },
+    });
+    setCartData([...data.cart]);
   };
 
   return (
@@ -95,22 +93,27 @@ export const CardHorizontal = ({ item }) => {
         <div className="card-quantity-container d-flex">
           <h4 className="margin-r-10">Quantity</h4>
           <button
-            className="btn btn-primary quantity-minus-btn"
+            className={`btn btn-primary quantity-minus-btn ${
+              disableDec ? 'btn-deactive' : ''
+            }`}
             onClick={handleDecrement}
-            disabled={decrementBtnState}
+            disabled={disableDec}
           >
             <span className="fa fa-minus"></span>
           </button>
           <input
+            readOnly
             type="number"
             className="card-quantity-input"
             min="1"
             placeholder={quantity}
           />
           <button
-            className="btn btn-primary quantity-plus-btn"
+            className={`btn btn-primary quantity-plus-btn ${
+              disableInc ? 'btn-deactive' : ''
+            }`}
             onClick={handleIncrement}
-            disabled={incrementBtnState}
+            disabled={disableInc}
           >
             <span className="fa fa-plus"></span>
           </button>
