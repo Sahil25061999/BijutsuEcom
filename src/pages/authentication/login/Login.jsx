@@ -79,6 +79,7 @@ export const Login = () => {
             </label>
             <input
               id="password"
+              placeholder="should contain letters and number"
               className="textbox"
               type={showPassword ? 'text' : 'password'}
               onChange={(e) =>

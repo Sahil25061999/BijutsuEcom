@@ -110,6 +110,7 @@ export const Signup = () => {
             <input
               onChange={handlePassword}
               id="password"
+              placeholder="should contain letters and number"
               className="textbox"
               type={showPassword ? 'text' : 'password'}
               required
