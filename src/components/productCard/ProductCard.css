@@ -1,9 +1,29 @@
 .card {
-  padding: 1rem;
+  /* padding: 1rem; */
   box-shadow: none;
   transform: scale(1);
   transition: 0.5s;
   position: relative;
+  margin: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.card-head,
+.card-content,
+.card-foot {
+  padding-inline: 0;
+}
+
+div.card:hover {
+  box-shadow: none;
+}
+
+div.card:hover .card-head > h3 {
+  text-decoration: underline;
+}
+
+div.card:hover .card-image-container {
+  padding: 0;
 }
 
 .card-text-overlay {

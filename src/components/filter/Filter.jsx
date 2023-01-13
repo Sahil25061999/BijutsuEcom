@@ -1,7 +1,7 @@
 import { useFilter } from '../../context/context_index';
 
 import './Filter.css';
-const Filter = () => {
+const Filter = ({ displayFilter, setDisplayFilter }) => {
   const {
     sortByState,
     rangeState,
@@ -41,8 +41,16 @@ const Filter = () => {
     });
   };
   return (
-    <aside className="filter-section">
+    <aside className={`filter-section ${displayFilter ? 'filterVisible' : ''}`}>
       <form className="filter-container" action="">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setDisplayFilter(!displayFilter);
+          }}
+        >
+          close
+        </button>
         <div className="filter-head-section d-flex">
           <h3 className="filter-title">Filters</h3>
           <button

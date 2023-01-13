@@ -1,12 +1,41 @@
 /* Filter Styles */
 
 .filter-section {
-  grid-column: 1;
+  /* grid-column: 1;
   width: 100%;
-  height: 100%;
-  padding: 1rem 0px;
+  height: 100%; */
+  opacity: 0;
 
-  border-radius: 0.2rem;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  padding: 1rem 0px;
+  backdrop-filter: brightness(25%);
+  pointer-events: none;
+  transition: 0.5s ease-in-out;
+  z-index: 999;
+}
+
+.filter-section.filterVisible {
+  opacity: 1;
+}
+
+.filter-section > * {
+  pointer-events: auto;
+}
+
+.filter-container {
+  height: 100%;
+  width: 20vw;
+  transform: translateX(-170%);
+  background-color: rgb(245, 245, 245);
+  transition: all 0.5s ease-in-out;
+}
+
+.filter-section.filter-section.filterVisible .filter-container {
+  transform: translateX(0);
 }
 
 .filter-elements,

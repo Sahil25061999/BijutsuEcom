@@ -4,19 +4,26 @@
 }
 
 .navbar-icon {
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+
+.btn.navbar-link {
+  border-radius: 0.5rem;
 }
 
 .navbar-link.active {
   color: var(--active-color);
   background-color: transparent;
+  box-shadow: none;
   border: transparent;
 }
+
+.navbar-link.active:hover {
+  background-color: var(--active-color);
+  color: var(--primary-text-color);
+}
+
 .home-navbar {
-  background-color: rgb(255, 255, 255);
-  position: fixed;
-  top: 0;
-  z-index: 99;
   padding: 8px 5rem;
 }
 

@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className="footer">
       <section className="footer-about-us">
-        <h2>About us</h2>
+        <h3>About us</h3>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
             <span>Our Story</span>
@@ -19,7 +19,7 @@ export const Footer = () => {
         </ul>
       </section>
       <section className="footer-support">
-        <h2>Support</h2>
+        <h3>Support</h3>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
             <span>FAQ</span>
@@ -33,7 +33,7 @@ export const Footer = () => {
         </ul>
       </section>
       <section className="footer-socials">
-        <h2>Socials</h2>
+        <h3>Socials</h3>
         <ul className="list-style-none footer-list">
           <li className="footer-list-items">
             <span>Instagram</span>

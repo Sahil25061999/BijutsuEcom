@@ -16,7 +16,6 @@ export const Navbar = () => {
     setWishlistData([]);
   };
 
-  console.log(token);
   return (
     <>
       <header className="navbar home-navbar">

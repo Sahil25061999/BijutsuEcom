@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   getCategoryData,
   getRatingData,
@@ -11,6 +11,7 @@ import { useScrollTop } from '../../hooks/useScrollTop';
 
 export const ProductList = () => {
   const { productList } = useProductList();
+  const [displayFilter, setDisplayFilter] = useState(false);
   const {
     rangeState,
     sortByState,
@@ -54,7 +55,13 @@ export const ProductList = () => {
   return (
     <>
       <main className="productList-body">
-        <Filter />
+        <button onClick={() => setDisplayFilter((prevState) => !prevState)}>
+          Filter
+        </button>
+        <Filter
+          displayFilter={displayFilter}
+          setDisplayFilter={setDisplayFilter}
+        />
         <section className="product-list">
           {filteredList && filteredList.length ? (
             filteredList.map((item) => (
