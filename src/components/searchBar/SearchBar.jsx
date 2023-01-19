@@ -8,7 +8,7 @@ export const SearchBar = () => {
         type="text"
         placeholder="Search images, gifs, music .."
       />
-      <button className="btn btn-only-icon btn-square">
+      <button className="btn btn-only-icon btn-square search-btn">
         <span className="fa-solid fa-magnifying-glass"></span>
       </button>
     </div>

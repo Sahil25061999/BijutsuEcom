@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
 
 @import url('https://minui.netlify.app/index.css');
 
 :root {
+  --active-color: rgb(46, 34, 220);
   --slider-color: rgba(0, 0, 0, 0.418);
   --wishlist-active: rgb(255, 38, 38);
+  --muted-color: rgb(131, 131, 131);
+  --muted-dark-color: rgb(34, 34, 35);
+  --footer-color: rgb(245, 245, 245);
   --body-font: 'Cabin', sans-serif;
   --head-font: 'Montserrat', sans-serif;
+  --head2-font: 'Oswald', sans-serif;
+  --body2-font: 'Roboto', sans-serif;
 }
 
 body {
@@ -24,6 +31,10 @@ h6 {
   font-family: var(--head-font);
 }
 
+main {
+  margin-top: 4rem;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -32,10 +43,10 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);
+  background-color: var(--muted-dark-color);
   border-radius: 2rem;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--hover-color);
+  background-color: var(--muted-dark-color);
   cursor: pointer;
 }

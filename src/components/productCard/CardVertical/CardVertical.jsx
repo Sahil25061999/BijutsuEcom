@@ -1,5 +1,6 @@
 import React from 'react';
 import { BuyButton, CartButton, WishlistButton } from '../../component_index';
+import './CardVertical.css';
 
 import '../ProductCard.css';
 
@@ -19,7 +20,7 @@ export const CardVertical = ({ item }) => {
     inStock,
   } = item;
   return (
-    <div className="card">
+    <div className="card ">
       {!inStock && (
         <div className="card-text-overlay">
           <span className="badge-text badge-lg badge-secondary">

@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFilter } from '../../../context/context_index';
 import '../ProductCard.css';
+import './CardCategory.css';
 
 export const CardCategory = ({ item }) => {
-  const {
-    imgSrc,
-    productCategory: { name: category },
-  } = item;
+  const { imgSrc, categoryName: category } = item;
   const { filterDispatch } = useFilter();
   return (
     <div className="card home-card">

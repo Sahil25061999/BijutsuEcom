@@ -1,0 +1,13 @@
+.card-cart-btn,
+.card-go-cart-btn {
+  height: 100%;
+  padding-inline: 1rem;
+  border-radius: 1.2rem;
+  border-color: var(--muted-dark-color);
+}
+
+.card-cart-btn:hover,
+.card-go-cart-btn:hover {
+  background-color: var(--muted-dark-color);
+  border-color: var(--muted-dark-color);
+}

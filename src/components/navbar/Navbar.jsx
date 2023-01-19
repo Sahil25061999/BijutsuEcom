@@ -29,7 +29,7 @@ export const Navbar = () => {
           <ul className="navbar-list list-style-none">
             <li className="navbar-item">
               <NavLink to="/product-list" className=" btn navbar-link ">
-                <span className="fa-solid fa-globe navbar-icon"></span>
+                Explore
               </NavLink>
             </li>
 
@@ -45,8 +45,7 @@ export const Navbar = () => {
                         {itemInWishlist}
                       </div>
                     )}
-
-                    <span className="fa-solid fa-heart navbar-icon"></span>
+                    Wishlist
                   </NavLink>
                 </li>
                 <li className="navbar-item">
@@ -57,7 +56,7 @@ export const Navbar = () => {
                     {itemInCart > 0 && (
                       <div className="badge badge-round-md">{itemInCart}</div>
                     )}
-                    <span className="fa-solid fa-cart-shopping navbar-icon"></span>
+                    Cart
                   </NavLink>
                 </li>
                 <li className="navbar-item">

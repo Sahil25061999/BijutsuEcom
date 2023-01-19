@@ -1,0 +1,13 @@
+.card-buy-btn {
+  background-color: var(--muted-dark-color);
+  border-color: var(--muted-dark-color);
+  border-radius: 1.5rem;
+  padding-inline: 1rem;
+  border: none;
+}
+
+.card-buy-btn:hover {
+  background-color: var(--active-color);
+  border-color: var(--active-color);
+  color: var(--primary-text-color);
+}

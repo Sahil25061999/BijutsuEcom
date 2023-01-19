@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {
   CardHomeVertical,
@@ -9,7 +10,20 @@ import { useScrollTop } from '../../hooks/useScrollTop';
 import './HomePage.css';
 
 export const HomePage = () => {
+  const [categoryList, setCategoryList] = useState([]);
   const { productList } = useProductList();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const categoryResponse = await axios.get('/api/categories');
+        setCategoryList([...categoryResponse.data.categories]);
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  }, []);
+
   useScrollTop();
   return (
     <main className="home-container">
@@ -30,11 +44,9 @@ export const HomePage = () => {
       {/**TOP CATEGORIES SECTION **/}
 
       <section className="home-section categories-section">
-        <h2 className="h3 home-section-title text-center">
-          Browse Top catgories
-        </h2>
+        <h2 className=" home-section-title ">Browse Top catgories</h2>
         <section className="cards-section home-cards-section">
-          {productList.map((item) => (
+          {categoryList.map((item) => (
             <CardCategory key={item._id} item={item} />
           ))}
         </section>
@@ -43,9 +55,9 @@ export const HomePage = () => {
       {/** TRENDING PRODUCTS **/}
 
       <section className="home-section categories-section">
-        <h2 className="h3 home-section-title text-center">Trending products</h2>
+        <h2 className=" home-section-title ">Trending products</h2>
         <section className="cards-section home-cards-section">
-          {productList.map((item) => (
+          {productList.slice(0, 8).map((item) => (
             <CardHomeVertical key={item._id} item={item} />
           ))}
         </section>

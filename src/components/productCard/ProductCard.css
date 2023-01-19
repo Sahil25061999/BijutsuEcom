@@ -57,25 +57,3 @@ div.card:hover .card-image-container {
 .card-foot {
   margin-bottom: 0;
 }
-
-.home-card:hover {
-  transform: scale(0.9);
-  box-shadow: none;
-}
-
-.home-card .card-image-container {
-  height: 90%;
-}
-
-.home-card-hover {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-color: rgb(0, 0, 0, 0.5);
-
-  align-items: center;
-  justify-content: center;
-  top: 100%;
-  left: 0;
-  transition: 0.5s;
-}

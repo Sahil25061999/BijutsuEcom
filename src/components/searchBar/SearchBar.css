@@ -1,4 +1,24 @@
-.textbox:hover,
-.textbox:focus {
-  border-color: var(--secondary-text-color);
+.search-container .textbox {
+  border-width: 1.5px;
+  /* border-color: var(--primary-text-color); */
+  color: var(--primary-text-color);
+  border-radius: 1.5rem;
+  background-color: var(--muted-dark-color);
+}
+
+.search-container .textbox:hover,
+.search-container .textbox:focus {
+  /* border-color: transparent; */
+  /* border-color: var(--primary-text-color); */
+}
+
+.search-btn {
+  color: var(--primary-text-color);
+}
+
+.search-container .search-btn:hover {
+  background-color: var(--muted-dark-color);
+  border-color: var(--muted-dark-color);
+  /* color: var(--secondary-text-color); */
+  box-shadow: none;
 }

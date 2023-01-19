@@ -43,25 +43,20 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
   return (
     <aside className={`filter-section ${displayFilter ? 'filterVisible' : ''}`}>
       <form className="filter-container" action="">
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            setDisplayFilter(!displayFilter);
-          }}
-        >
-          close
-        </button>
         <div className="filter-head-section d-flex">
           <h3 className="filter-title">Filters</h3>
           <button
-            onClick={handleClearBtn}
-            className="btn btn-link-primary filter-clear-btn"
+            className="btn btn-float filter-close-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              setDisplayFilter(!displayFilter);
+            }}
           >
-            Clear
+            <span className="fa-solid fa-xmark"></span>
           </button>
         </div>
         <div className="filter-elements filter-price-element">
-          <h3>Price</h3>
+          <h4>Price</h4>
           <div className="filter-input-container">
             <input
               onChange={(e) =>
@@ -81,7 +76,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
           </div>
         </div>
         <div className="filter-elements filter-category-element">
-          <h3>Category</h3>
+          <h4>Category</h4>
           <div className="filter-input-container">
             <label className="margin-b-5">
               <input
@@ -152,7 +147,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
           </div>
         </div>
         <div className="filter-elements filter-rating-element">
-          <h3>Ratings</h3>
+          <h4>Ratings</h4>
           <div className="filter-input-container">
             <label className="margin-b-5">
               <input
@@ -205,7 +200,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
           </div>
         </div>
         <div className="filter-elements filter-sort-element">
-          <h3>Sort by</h3>
+          <h4>Sort by</h4>
           <div className="filter-input-container">
             <label className="margin-b-5">
               <input
@@ -240,7 +235,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
           </div>
         </div>
         <div className="filter-elements filter-other-element">
-          <h3>Others</h3>
+          <h4>Others</h4>
           <div className="filter-input-container">
             <label className="margin-b-5">
               <input
@@ -271,6 +266,12 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
             </label>
           </div>
         </div>
+        <button
+          onClick={handleClearBtn}
+          className="btn btn-link-primary filter-clear-btn"
+        >
+          Clear
+        </button>
       </form>
     </aside>
   );

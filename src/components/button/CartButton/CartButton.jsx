@@ -1,4 +1,5 @@
 import React from 'react';
+import './CartButton.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart, useProductList } from '../../../context/context_index';
 import { postCartData } from '../../../api-call/api-index';
@@ -22,7 +23,7 @@ export const CartButton = ({ id }) => {
 
   return cartData.some((item) => item._id === id) ? (
     <Link to="/cart">
-      <button className="btn card-go-cart-btn btn-accented">Go to Cart</button>
+      <button className="btn card-go-cart-btn ">Go to Cart</button>
     </Link>
   ) : (
     <button

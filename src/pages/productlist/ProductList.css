@@ -10,6 +10,19 @@
   padding-inline: 5rem;
 }
 
+.filter-btn {
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  padding-inline: 1rem;
+  border: 1.5px solid var(--muted-color);
+}
+
+.filter-btn:hover {
+  background-color: var(--muted-dark-color);
+  border-color: var(--muted-dark-color);
+  box-shadow: none;
+}
+
 .product-list {
   width: 100%;
   padding-bottom: 5rem;

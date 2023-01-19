@@ -55,7 +55,11 @@ export const ProductList = () => {
   return (
     <>
       <main className="productList-body">
-        <button onClick={() => setDisplayFilter((prevState) => !prevState)}>
+        <button
+          className="btn filter-btn margin-b-10"
+          onClick={() => setDisplayFilter((prevState) => !prevState)}
+        >
+          <span className="fa-solid fa-sliders margin-r-5"></span>
           Filter
         </button>
         <Filter
