@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart, useProductList } from '../../../context/context_index';
 import { postCartData } from '../../../api-call/api-index';
 
-export const CartButton = ({ id }) => {
+export const CartButton = ({ id, fromHorizon = false }) => {
   const { cartData, setCartData } = useCart();
   const { productList } = useProductList();
   const token = localStorage.getItem('token');
@@ -23,14 +23,21 @@ export const CartButton = ({ id }) => {
 
   return cartData.some((item) => item._id === id) ? (
     <Link to="/cart">
-      <button className="btn card-go-cart-btn ">Go to Cart</button>
+      <button className="btn cart-btn go-cart-btn">
+        <span className="btn-text">Go to Cart</span>
+        <span className="fa-solid fa-arrow-right btn-icon"></span>
+      </button>
     </Link>
   ) : (
     <button
       onClick={handleCartClick}
-      className=" btn card-cart-btn btn-outline-black"
+      className=" btn cart-btn btn-outline-black"
     >
-      Cart
+      {fromHorizon ? '' : <span className="btn-text">Add to Cart</span>}
+
+      <span
+        className={`fa-solid fa-cart-shopping ${fromHorizon ? '' : 'btn-icon'}`}
+      ></span>
     </button>
   );
 };

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../../../context/context_index';
-import { WishlistButton } from '../../component_index';
+import { WishlistButton, CartButton } from '../../component_index';
 import { postCartQuantity } from '../../../api-call/api-index';
 import './CardHorizontal.css';
 export const CardHorizontal = ({ item }) => {
@@ -17,10 +18,12 @@ export const CardHorizontal = ({ item }) => {
     wishlist,
     qty: quantity,
     cart,
+    inStock,
   } = item;
   const [disableInc, setInc] = useState(false);
   const [disableDec, setDec] = useState(false);
   const { cartData, setCartData } = useCart();
+  const location = useLocation();
   const token = localStorage.getItem('token');
 
   const updateProduct = async (value) => {
@@ -75,56 +78,76 @@ export const CardHorizontal = ({ item }) => {
           loading="lazy"
         />
       </div>
-      <div className="card-head">
-        <h3 className="card-heading d-flex">
-          {cardHeading}
-          <span className="badge-text badge-sm badge-accent">Hot</span>
-        </h3>
-        <p className="card-subheading muted-text-color">{cardSubHeading}</p>
-      </div>
-      <div className="card-content">
-        <div className="card-pricing">
-          <h3 className="margin-r-5 card-price">${productDiscountedPrice}</h3>
-          <span className="card-og-price small-text strike-text muted-text-color">
-            {productOriginalPrice}
-          </span>
+      <div className="card-head d-flex">
+        <div>
+          <h4 className="card-heading d-flex">{cardHeading}</h4>
+          <p className="card-subheading muted-text-color">{cardSubHeading}</p>
         </div>
-        <h3 className="muted-text-color card-discount">20% off</h3>
-        <div className="card-quantity-container d-flex">
-          <h4 className="margin-r-10">Quantity</h4>
-          <button
-            className={`btn btn-primary quantity-minus-btn ${
-              disableDec ? 'btn-deactive' : ''
-            }`}
-            onClick={handleDecrement}
-            disabled={disableDec}
-          >
-            <span className="fa fa-minus"></span>
-          </button>
-          <input
-            readOnly
-            type="number"
-            className="card-quantity-input"
-            min="1"
-            placeholder={quantity}
-          />
-          <button
-            className={`btn btn-primary quantity-plus-btn ${
-              disableInc ? 'btn-deactive' : ''
-            }`}
-            onClick={handleIncrement}
-            disabled={disableInc}
-          >
-            <span className="fa fa-plus"></span>
-          </button>
+        <div className="card-pricing ">
+          <div className="">
+            <h3 className="margin-r-5 card-price">
+              <span className="card-og-price small-text strike-text muted-text-color">
+                <span className="currency-symbol">Rs.</span>
+                {productOriginalPrice}
+              </span>{' '}
+              <span className="currency-symbol">Rs.</span>
+              {productDiscountedPrice}
+            </h3>
+          </div>
         </div>
       </div>
+      <div className="card-content"></div>
       <div className="card-foot d-flex">
-        <button className="card-buy-btn btn btn-black" onClick={handleRemove}>
-          Remove from Cart
-        </button>
+        {location.pathname !== '/wishlist' ? (
+          <>
+            <p className="margin-r-10">Quantity</p>
+            <div className="card-quantity-container d-flex">
+              <button
+                className={`btn btn-primary quantity-minus-btn ${
+                  disableDec ? 'btn-deactive' : ''
+                }`}
+                onClick={handleDecrement}
+                disabled={disableDec}
+              >
+                <span className="fa fa-minus"></span>
+              </button>
 
-        <WishlistButton id={id} wishlistState={wishlist} fromHorizon={true} />
+              <input
+                readOnly
+                type="number"
+                className="card-quantity-input"
+                min="1"
+                value={quantity}
+                // placeholder={quantity}
+              />
+              {/* <div className="quantity-btn-container d-flex"> */}
+              <button
+                className={`btn btn-primary quantity-plus-btn ${
+                  disableInc ? 'btn-deactive' : ''
+                }`}
+                onClick={handleIncrement}
+                disabled={disableInc}
+              >
+                <span className="fa fa-plus"></span>
+              </button>
+              {/* </div> */}
+            </div>
+          </>
+        ) : (
+          ''
+        )}
+
+        <div className="btn-container">
+          {location.pathname !== '/wishlist' ? (
+            <button className="card-delete-btn btn " onClick={handleRemove}>
+              <span className="fa-solid fa-trash"></span>
+            </button>
+          ) : (
+            <CartButton cartState={cart} id={id} fromHorizon={true} />
+          )}
+
+          <WishlistButton id={id} wishlistState={wishlist} fromHorizon={true} />
+        </div>
       </div>
     </div>
   );

@@ -31,35 +31,19 @@ export const WishlistButton = ({ id, wishlistState, fromHorizon }) => {
     return;
   };
 
-  return !fromHorizon ? (
-    wishlistData.some((item) => item._id === id) ? (
-      <button
-        onClick={handleWishlistRemove}
-        className="btn btn-only-icon wishlist-btn"
-      >
-        <span className="fa-solid fa-heart wishlist-btn-icon wishlist-btn-active"></span>
-      </button>
-    ) : (
-      <button
-        onClick={handleWishlistAdd}
-        className="btn btn-only-icon wishlist-btn "
-      >
-        <span className="fa-solid fa-heart wishlist-btn-icon"></span>
-      </button>
-    )
-  ) : wishlistData.some((item) => item._id === id) ? (
+  return wishlistData.some((item) => item._id === id) ? (
     <button
       onClick={handleWishlistRemove}
-      className="card-go-cart-btn btn btn-accented "
+      className="btn btn-only-icon wishlist-btn"
     >
-      Remove From wishlist
+      <span className="fa-solid fa-heart wishlist-btn-icon wishlist-btn-active"></span>
     </button>
   ) : (
     <button
       onClick={handleWishlistAdd}
-      className="card-go-cart-btn btn btn-accented"
+      className="btn btn-only-icon wishlist-btn "
     >
-      Add to wishlist
+      <span className="fa-solid fa-heart wishlist-btn-icon"></span>
     </button>
   );
 };

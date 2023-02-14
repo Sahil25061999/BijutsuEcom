@@ -8,9 +8,7 @@
 .wishlist-body {
   width: 100vw;
   height: 100%;
-
   margin-inline: 0;
-
   flex-direction: column;
 }
 
@@ -22,10 +20,6 @@
   min-height: 80vh;
   height: 100%;
   flex-wrap: wrap;
-}
-
-.wishlist .card {
-  border: 2px solid var(--secondary-text-color);
 }
 
 .card-foot {

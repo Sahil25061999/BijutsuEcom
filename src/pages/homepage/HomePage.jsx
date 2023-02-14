@@ -35,7 +35,7 @@ export const HomePage = () => {
           </h1>
           <div className="hero-button-container">
             <Link to="/product-list">
-              <button className="btn btn-white">Explore</button>
+              <button className="btn btn-white explore-btn">Explore</button>
             </Link>
           </div>
         </div>

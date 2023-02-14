@@ -1,10 +1,12 @@
 .card {
   /* padding: 1rem; */
+  /* width: 100%; */
   box-shadow: none;
   transform: scale(1);
   transition: 0.5s;
   position: relative;
   margin: 0;
+
   transition: all 0.5s ease-in-out;
 }
 
@@ -14,12 +16,18 @@
   padding-inline: 0;
 }
 
+span.badge-primary {
+  font-weight: 500;
+  padding: 4px 8px;
+  background-color: var(--badge-color);
+}
+
 div.card:hover {
   box-shadow: none;
 }
 
-div.card:hover .card-head > h3 {
-  text-decoration: underline;
+div.card-image-container {
+  border-radius: 1.5rem;
 }
 
 div.card:hover .card-image-container {
@@ -56,4 +64,10 @@ div.card:hover .card-image-container {
 
 .card-foot {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 40em) {
+  .card {
+    /* width: 250px; */
+  }
 }

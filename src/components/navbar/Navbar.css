@@ -9,6 +9,7 @@
 
 .btn.navbar-link {
   border-radius: 0.5rem;
+
   border: transparent;
   background-color: transparent;
   box-shadow: none;
@@ -32,8 +33,10 @@
 
 .navbar.home-navbar {
   padding: 8px 5rem;
+  background-color: rgba(255, 255, 255);
+
   /* background-color: rgba(0, 0, 0, 0.5); */
-  backdrop-filter: blur(32px);
+  /* backdrop-filter: blur(32px); */
   margin-bottom: 0;
   top: 0;
   position: fixed;

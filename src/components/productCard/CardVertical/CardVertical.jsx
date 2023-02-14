@@ -20,7 +20,7 @@ export const CardVertical = ({ item }) => {
     inStock,
   } = item;
   return (
-    <div className="card ">
+    <div className="card product-card">
       {!inStock && (
         <div className="card-text-overlay">
           <span className="badge-text badge-lg badge-secondary">
@@ -37,26 +37,41 @@ export const CardVertical = ({ item }) => {
         />
       </div>
       <div className="card-head">
-        <h3 className="card-heading d-flex">{cardHeading}</h3>
-        <p className="card-subheading">
-          {cardSubHeading}
-          {rating && (
-            <span className="badge-text badge-sm badge-primary">
-              ⭐ {rating} {fast ? '| express delivery' : ''}
-            </span>
-          )}
-        </p>
+        <div className="card-head-top d-flex">
+          <h4 className="card-heading d-flex">{cardHeading}</h4>
+          <p>
+            {rating && (
+              <span className="badge-text badge-sm badge-primary">
+                <span className="fa-regular fa-star"></span> {rating}
+              </span>
+            )}
+            {fast && (
+              <span className="badge-text badge-sm badge-primary">
+                {fast ? 'express delivery' : ''}
+              </span>
+            )}
+          </p>
+        </div>
+
+        <p className="card-subheading">{cardSubHeading}</p>
       </div>
       <div className="card-content">
         <div className="card-pricing">
-          <h3 className="margin-r-5">${productDiscountedPrice}</h3>
-          <span className="card-og-price small-text strike-text">
+          <h2 className="margin-r-5">
+            <span className="card-og-price small-text strike-text muted-text-color">
+              <span className="currency-symbol">Rs.</span>
+              {productOriginalPrice}
+            </span>{' '}
+            <span className="currency-symbol">Rs.</span>
+            {productDiscountedPrice}
+          </h2>
+          {/* <span className="card-og-price small-text strike-text">
             {productOriginalPrice}
-          </span>
+          </span> */}
         </div>
       </div>
       <div className="card-foot d-flex">
-        <BuyButton />
+        {/* <BuyButton /> */}
         <CartButton cartState={cart} id={id} />
         <WishlistButton wishlistState={wishlist} id={id} />
       </div>

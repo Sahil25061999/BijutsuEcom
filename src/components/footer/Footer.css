@@ -1,6 +1,6 @@
 .footer {
   padding: 2rem;
-  background: rgb(245, 245, 245);
+  background: var(--footer-color);
   color: var(--secondary-text-color);
 
   width: 100vw;

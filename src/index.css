@@ -6,11 +6,16 @@
 
 :root {
   --active-color: rgb(46, 34, 220);
+
+  /* --active-color: #7b7554; */
+  --badge-color: rgb(247, 222, 94);
   --slider-color: rgba(0, 0, 0, 0.418);
   --wishlist-active: rgb(255, 38, 38);
-  --muted-color: rgb(131, 131, 131);
+  --muted-color: rgb(78, 78, 78);
   --muted-dark-color: rgb(34, 34, 35);
+
   --footer-color: rgb(245, 245, 245);
+
   --body-font: 'Cabin', sans-serif;
   --head-font: 'Montserrat', sans-serif;
   --head2-font: 'Oswald', sans-serif;

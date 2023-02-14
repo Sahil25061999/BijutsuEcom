@@ -1,3 +1,14 @@
+.wishlist-btn {
+  border-radius: 1.5rem;
+}
+
+.wishlist-btn:hover {
+  border-color: var(--muted-dark-color);
+  background-color: var(--muted-dark-color);
+  /* color: var(--active-color); */
+  box-shadow: none;
+}
+
 .wishlist-btn-active {
   color: var(--wishlist-active);
 }

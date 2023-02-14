@@ -3,7 +3,7 @@
   /* border-color: var(--primary-text-color); */
   color: var(--primary-text-color);
   border-radius: 1.5rem;
-  background-color: var(--muted-dark-color);
+  /* background-color: var(--muted-color); */
 }
 
 .search-container .textbox:hover,
@@ -13,7 +13,7 @@
 }
 
 .search-btn {
-  color: var(--primary-text-color);
+  /* color: var(--primary-text-color); */
 }
 
 .search-container .search-btn:hover {
