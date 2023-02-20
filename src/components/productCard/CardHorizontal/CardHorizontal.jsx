@@ -137,9 +137,12 @@ export const CardHorizontal = ({ item }) => {
           ''
         )}
 
-        <div className="btn-container">
+        <div className="btn-container d-flex">
           {location.pathname !== '/wishlist' ? (
-            <button className="card-delete-btn btn " onClick={handleRemove}>
+            <button
+              className="card-delete-btn btn btn-only-icon"
+              onClick={handleRemove}
+            >
               <span className="fa-solid fa-trash"></span>
             </button>
           ) : (

@@ -21,6 +21,17 @@
   justify-content: space-between;
 }
 
+.cart-card .card-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 50%;
+  height: fit-content;
+  /* background-color: blue; */
+}
+
 .card-horizontal .card-quantity-container {
   align-items: center;
   border: 2px solid black;

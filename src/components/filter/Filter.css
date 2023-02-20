@@ -25,7 +25,7 @@
 .filter-container {
   height: 100%;
   width: clamp(18rem, 24vw, 50rem);
-  padding: 1rem;
+  padding: 1rem 2rem;
 
   transform: translateX(-170%);
   background-color: var(--primary-text-color);

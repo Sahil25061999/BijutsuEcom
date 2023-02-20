@@ -1,6 +1,10 @@
+.logo-container h2 {
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+
 .logo-container:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
 
 .navbar-icon {
@@ -59,10 +63,15 @@
   .home-navbar .navbar-menu {
     justify-self: end;
   }
+  .navbar.home-navbar {
+    /* padding: 8px 1rem; */
+    /* padding-inline: 1rem; */
+  }
 }
 
-@media only screen and (max-width: 34.06em) {
-  .home-navbar {
-    padding: 8px 2rem;
+@media only screen and (max-width: 40em) {
+  .navbar.home-navbar {
+    /* padding: 8px 1rem; */
+    padding-inline: 1rem;
   }
 }

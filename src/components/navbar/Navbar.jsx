@@ -21,7 +21,7 @@ export const Navbar = () => {
       <header className="navbar home-navbar">
         <div className="logo-container">
           <h2>
-            <NavLink to="/">Bijutsu</NavLink>
+            <NavLink to="/">BIJUTSU</NavLink>
           </h2>
         </div>
         <SearchBar />

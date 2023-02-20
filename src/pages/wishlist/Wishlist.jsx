@@ -10,16 +10,18 @@ export const Wishlist = () => {
 
   return (
     <main className="wishlist-body">
-      <h2>Wishlist</h2>
-      <section className="wishlist">
-        {itemInWishlist ? (
-          wishlistData.map((item) => (
-            <CardHorizontal key={item._id} item={item} />
-          ))
-        ) : (
-          <h2 className="empty-list">No Data Found</h2>
-        )}
-      </section>
+      <h3>Wishlist</h3>
+      <div>
+        <section className="wishlist">
+          {itemInWishlist ? (
+            wishlistData.map((item) => (
+              <CardHorizontal key={item._id} item={item} />
+            ))
+          ) : (
+            <h2 className="empty-list">No Data Found</h2>
+          )}
+        </section>
+      </div>
     </main>
   );
 };

@@ -33,11 +33,9 @@ export const CartButton = ({ id, fromHorizon = false }) => {
       onClick={handleCartClick}
       className=" btn cart-btn btn-outline-black"
     >
-      {fromHorizon ? '' : <span className="btn-text">Add to Cart</span>}
+      <span className="btn-text">Add to Cart</span>
 
-      <span
-        className={`fa-solid fa-cart-shopping ${fromHorizon ? '' : 'btn-icon'}`}
-      ></span>
+      <span className="fa-solid fa-cart-shopping  btn-icon"></span>
     </button>
   );
 };
