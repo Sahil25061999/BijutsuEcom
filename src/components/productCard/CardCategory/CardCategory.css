@@ -29,6 +29,18 @@
   justify-content: space-between;
 }
 
+.card-image-container {
+  position: relative;
+}
+
+.card-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  mix-blend-mode: lighten;
+}
+
 .browse-btn {
   border-radius: 1.5rem;
   margin-right: 5px;

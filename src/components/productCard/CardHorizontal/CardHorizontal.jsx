@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../../../context/context_index';
 import { WishlistButton, CartButton } from '../../component_index';
@@ -55,21 +55,31 @@ export const CardHorizontal = ({ item }) => {
       ].reverse()
     );
   };
-  const handleIncrement = async () => {
+  const handleIncrement = async (e) => {
+    e.stopPropagation();
     await updateProduct('increment');
   };
-  const handleDecrement = async () => {
+  const handleDecrement = async (e) => {
+    e.stopPropagation();
     await updateProduct('decrement');
   };
-  const handleRemove = async () => {
+  const handleRemove = async (e) => {
+    e.stopPropagation();
     const { data } = await axios.delete(`/api/user/cart/${id}`, {
       headers: { authorization: token },
     });
     setCartData([...data.cart]);
   };
 
+  const navigate = useNavigate();
+
   return (
-    <div className="card cart-card card-horizontal">
+    <div
+      className="card cart-card card-horizontal"
+      onClick={(e) => {
+        navigate(`/product/${id}`, { state: { item } });
+      }}
+    >
       <div className="card-image-container">
         <img
           className="card-image"

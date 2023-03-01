@@ -12,7 +12,8 @@ export const WishlistButton = ({ id, wishlistState, fromHorizon }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
-  const handleWishlistAdd = async () => {
+  const handleWishlistAdd = async (e) => {
+    e.stopPropagation();
     if (token) {
       const [product] = productList.filter((item) => item._id === id);
       const response = await postWishlistData(product, token);
@@ -23,7 +24,8 @@ export const WishlistButton = ({ id, wishlistState, fromHorizon }) => {
     }
     navigate('/login');
   };
-  const handleWishlistRemove = async () => {
+  const handleWishlistRemove = async (e) => {
+    e.stopPropagation();
     const response = await deleteWishlistData(id, token);
     if (response.status === 200) {
       setWishlistData([...response.data.wishlist]);

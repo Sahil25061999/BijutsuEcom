@@ -9,7 +9,8 @@ export const CartButton = ({ id, fromHorizon = false }) => {
   const { productList } = useProductList();
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
-  const handleCartClick = async () => {
+  const handleCartClick = async (e) => {
+    e.stopPropagation();
     if (token) {
       const [product] = productList.filter((item) => item._id === id);
       const response = await postCartData(token, product);
@@ -22,12 +23,16 @@ export const CartButton = ({ id, fromHorizon = false }) => {
   };
 
   return cartData.some((item) => item._id === id) ? (
-    <Link to="/cart">
-      <button className="btn cart-btn go-cart-btn">
-        <span className="btn-text">Go to Cart</span>
-        <span className="fa-solid fa-arrow-right btn-icon"></span>
-      </button>
-    </Link>
+    <button
+      className="btn cart-btn go-cart-btn"
+      onClick={(e) => {
+        e.stopPropagation();
+        navigate('/cart');
+      }}
+    >
+      <span className="btn-text">Go to Cart</span>
+      <span className="fa-solid fa-arrow-right btn-icon"></span>
+    </button>
   ) : (
     <button
       onClick={handleCartClick}

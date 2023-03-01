@@ -9,6 +9,7 @@ import {
   Login,
   Logout,
   Signup,
+  ProductPage,
 } from './pages/pages_index';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:productId" element={<ProductPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />

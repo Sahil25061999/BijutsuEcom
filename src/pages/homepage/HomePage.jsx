@@ -29,6 +29,7 @@ export const HomePage = () => {
     <main className="home-container">
       {/* HERO SECTION  */}
       <section className="home-section hero-section">
+        <div className="black-border"></div>
         <div className="hero-container">
           <h1 className="h2">
             Explore, sell and buy different digital art, photos, music.
@@ -54,7 +55,7 @@ export const HomePage = () => {
 
       {/** TRENDING PRODUCTS **/}
 
-      <section className="home-section categories-section">
+      <section className="home-section trending-section">
         <h2 className=" home-section-title ">Trending products</h2>
         <section className="cards-section home-cards-section">
           {productList.slice(0, 8).map((item) => (

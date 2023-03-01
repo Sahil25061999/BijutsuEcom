@@ -1,13 +1,12 @@
-.card {
-  /* padding: 1rem; */
-  /* width: 100%; */
+div.card {
   box-shadow: none;
   transform: scale(1);
   transition: 0.5s;
   position: relative;
   margin: 0;
-
+  overflow: auto;
   transition: all 0.5s ease-in-out;
+  width: auto;
 }
 
 .card-head,
@@ -66,8 +65,29 @@ div.card:hover .card-image-container {
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 40em) {
+@media screen and (max-width: 90em) {
   .card {
-    /* width: 250px; */
+    /* width: 18rem; */
+  }
+}
+
+@media screen and (max-width: 60.125em) {
+  .card {
+    /* min-width: 15rem; */
+  }
+  /* .card-image-container {
+    height: 20em;
+  } */
+}
+
+@media screen and (max-width: 50em) {
+  .card {
+    /* min-width: 10rem; */
+  }
+}
+
+@media screen and (max-width: 50em) {
+  .card {
+    /* width: 20rem; */
   }
 }

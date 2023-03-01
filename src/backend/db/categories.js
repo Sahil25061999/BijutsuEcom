@@ -1,9 +1,14 @@
 import { v4 as uuid } from 'uuid';
-import AbstractImage from '../../assets/image/card image/compressor/images/abstract.jpg';
+import AbstractImage from '../../assets/image/card image/compressor/images/abstract.webp';
+import abstract from '../../assets/image/category animated card/abstractArt.mp4';
 import DigitalArt from '../../assets/image/card image/compressor/images/digital art.jpg';
-import Photography from '../../assets/image/card image/compressor/images/photography.jpg';
+import digitalart from '../../assets/image/category animated card/digitalArt.mp4';
+import Photography from '../../assets/image/card image/compressor/images/photography.webp';
+import photography from '../../assets/image/category animated card/photography.mp4';
 import HipHop from '../../assets/image/card image/compressor/images/hip hop music.jpg';
+import hiphop from '../../assets/image/category animated card/hipHop.mp4';
 import EDM from '../../assets/image/card image/compressor/images/edm.jpg';
+import edm from '../../assets/image/category animated card/edm.mp4';
 
 /**
  * Category Database can be added here.
@@ -13,6 +18,7 @@ import EDM from '../../assets/image/card image/compressor/images/edm.jpg';
 export const categories = [
   {
     _id: uuid(),
+    vidSrc: digitalart,
     imgSrc: DigitalArt,
     categoryName: 'digital art',
     description:
@@ -20,6 +26,7 @@ export const categories = [
   },
   {
     _id: uuid(),
+    vidSrc: abstract,
     imgSrc: AbstractImage,
     categoryName: 'abstract art',
     description:
@@ -27,6 +34,7 @@ export const categories = [
   },
   {
     _id: uuid(),
+    vidSrc: photography,
     imgSrc: Photography,
     categoryName: 'photography',
     description:
@@ -34,6 +42,7 @@ export const categories = [
   },
   {
     _id: uuid(),
+    vidSrc: hiphop,
     imgSrc: HipHop,
     categoryName: 'hip hop music',
     description:
@@ -41,6 +50,7 @@ export const categories = [
   },
   {
     _id: uuid(),
+    vidSrc: edm,
     imgSrc: EDM,
     categoryName: 'edm music',
     description:

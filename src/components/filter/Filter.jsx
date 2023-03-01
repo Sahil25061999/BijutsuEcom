@@ -78,7 +78,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
         <div className="filter-elements filter-category-element">
           <h4>Category</h4>
           <div className="filter-input-container">
-            <label className="margin-b-5">
+            <label className="checkbox-container margin-b-5">
               <input
                 type="checkbox"
                 onChange={() => {
@@ -89,9 +89,11 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 value="Digital art"
                 checked={digitalArt}
               />
+              <span className="checker"></span>
               Digital Art
             </label>
-            <label className="margin-b-5">
+
+            <label className="checkbox-container margin-b-5">
               <input
                 type="checkbox"
                 onChange={() => {
@@ -102,10 +104,11 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 value="Abstract art"
                 checked={abstractArt}
               />
+              <span className="checker"></span>
               Abstract Art
             </label>
 
-            <label className="margin-b-5">
+            <label className="checkbox-container margin-b-5">
               <input
                 type="checkbox"
                 onChange={() => {
@@ -116,9 +119,11 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 value="Photography"
                 checked={photography}
               />
+              <span className="checker"></span>
               Photography
             </label>
-            <label className="margin-b-5">
+
+            <label className="checkbox-container margin-b-5">
               <input
                 type="checkbox"
                 onChange={() => {
@@ -129,9 +134,11 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 value="music"
                 checked={music}
               />
+              <span className="checker"></span>
               Music
             </label>
-            <label className="margin-b-5">
+
+            <label className="checkbox-container margin-b-5">
               <input
                 type="checkbox"
                 onChange={() => {
@@ -142,6 +149,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 value="gif"
                 checked={gif}
               />
+              <span className="checker"></span>
               Gif
             </label>
           </div>
@@ -149,7 +157,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
         <div className="filter-elements filter-rating-element">
           <h4>Ratings</h4>
           <div className="filter-input-container">
-            <label className="margin-b-5">
+            <label className=" checkbox-container margin-b-5">
               <input
                 onChange={() => {
                   filterDispatch({ type: '4_STAR_AND_ABOVE', payload: 4 });
@@ -159,9 +167,9 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 name="ratings"
                 value="4 stars & above"
               />
-              4 stars & above
+              <span className="radio"></span>4 stars & above
             </label>
-            <label className="margin-b-5">
+            <label className=" checkbox-container margin-b-5">
               <input
                 onChange={() => {
                   filterDispatch({ type: '3_STAR_AND_ABOVE', payload: 3 });
@@ -171,9 +179,9 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 name="ratings"
                 value="3 stars & above"
               />
-              3 stars & above
+              <span className="radio"></span>3 stars & above
             </label>
-            <label className="margin-b-5">
+            <label className=" checkbox-container margin-b-5">
               <input
                 onChange={() => {
                   filterDispatch({ type: '2_STAR_AND_ABOVE', payload: 2 });
@@ -183,9 +191,9 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 name="ratings"
                 value="2 stars & above"
               />
-              2 stars & above
+              <span className="radio"></span>2 stars & above
             </label>
-            <label className="margin-b-5">
+            <label className=" checkbox-container margin-b-5">
               <input
                 onChange={() => {
                   filterDispatch({ type: '1_STAR_AND_ABOVE', payload: 1 });
@@ -195,14 +203,14 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 name="ratings"
                 value="1 stars & above"
               />
-              1 stars & above
+              <span className="radio"></span>1 stars & above
             </label>
           </div>
         </div>
         <div className="filter-elements filter-sort-element">
           <h4>Sort by</h4>
           <div className="filter-input-container">
-            <label className="margin-b-5">
+            <label className=" checkbox-container margin-b-5">
               <input
                 onChange={() =>
                   filterDispatch({
@@ -215,9 +223,10 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 name="sort"
                 value="Price high to low"
               />
+              <span className="radio"></span>
               Price high to Low
             </label>
-            <label className="margin-b-5">
+            <label className=" checkbox-container margin-b-5">
               <input
                 onChange={() =>
                   filterDispatch({
@@ -230,6 +239,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 name="sort"
                 value="Price low to high"
               />
+              <span className="radio"></span>
               Price low to high
             </label>
           </div>
@@ -237,7 +247,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
         <div className="filter-elements filter-other-element">
           <h4>Others</h4>
           <div className="filter-input-container">
-            <label className="margin-b-5">
+            <label className="checkbox-container margin-b-5">
               <input
                 type="checkbox"
                 onChange={() => {
@@ -248,10 +258,11 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 value="Out of stock"
                 checked={includeAll}
               />
+              <span className="checker"></span>
               Out Of Stock
             </label>
 
-            <label className="margin-b-5">
+            <label className="checkbox-container margin-b-5">
               <input
                 type="checkbox"
                 onChange={() => {
@@ -262,6 +273,7 @@ const Filter = ({ displayFilter, setDisplayFilter }) => {
                 value="Express delivery"
                 checked={expressDelivery}
               />
+              <span className="checker"></span>
               Express Delivery
             </label>
           </div>

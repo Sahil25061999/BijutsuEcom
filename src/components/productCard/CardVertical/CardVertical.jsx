@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BuyButton, CartButton, WishlistButton } from '../../component_index';
 import './CardVertical.css';
 
@@ -19,8 +20,16 @@ export const CardVertical = ({ item }) => {
     cart,
     inStock,
   } = item;
+
+  const navigate = useNavigate();
+
   return (
-    <div className="card product-card">
+    <div
+      className="card product-card"
+      onClick={(e) => {
+        navigate(`/product/${id}`, { state: { item } });
+      }}
+    >
       {!inStock && (
         <div className="card-text-overlay">
           <span className="badge-text badge-lg badge-secondary">
@@ -28,7 +37,10 @@ export const CardVertical = ({ item }) => {
           </span>
         </div>
       )}
-      <div className="card-image-container">
+      <div
+        className="card-image-container"
+        // onClick={() => navigate(`/product/${id}`, { state: { item } })}
+      >
         <img
           className="card-image"
           src={imgSrc}
@@ -36,17 +48,20 @@ export const CardVertical = ({ item }) => {
           loading="lazy"
         />
       </div>
-      <div className="card-head">
+      <div
+        className="card-head"
+        // onClick={() => navigate(`/product/${id}`, { state: { item } })}
+      >
         <div className="card-head-top d-flex">
           <h4 className="card-heading d-flex">{cardHeading}</h4>
           <p>
             {rating && (
-              <span className="badge-text badge-sm badge-primary">
+              <span className="badge-text badge-sm badge-primary rating-badge">
                 <span className="fa-regular fa-star"></span> {rating}
               </span>
             )}
             {fast && (
-              <span className="badge-text badge-sm badge-primary">
+              <span className="badge-text badge-sm badge-primary express-badge">
                 {fast ? 'express delivery' : ''}
               </span>
             )}
