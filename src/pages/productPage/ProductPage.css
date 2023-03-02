@@ -3,6 +3,8 @@
   padding-top: 1rem;
   gap: 2.5rem;
 
+  /* z-index: ; */
+
   /* padding-top: 1rem; */
 }
 
@@ -53,6 +55,7 @@
 
 .product-description {
   color: var(--muted-text-color);
+
   line-height: 1.5rem;
 }
 

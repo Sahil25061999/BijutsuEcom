@@ -11,3 +11,4 @@ export { CardCategory } from './productCard/CardCategory/CardCategory';
 export { CardHomeVertical } from './productCard/CardHomeVertical/CardHomeVertical';
 export { CardHorizontal } from './productCard/CardHorizontal/CardHorizontal';
 export { SearchBar } from './searchBar/SearchBar';
+export { Rating } from './Rating/Rating';

@@ -37,7 +37,8 @@ export const CardCategory = ({ item }) => {
           }}
           className="card-video card-image category-image"
           autoPlay
-          // loop
+          loop
+          playsInline
           muted
         >
           <source src={vidSrc} type="video/mp4" />

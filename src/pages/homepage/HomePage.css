@@ -14,7 +14,7 @@
 }
 
 .home-section {
-  /* height: 100vh; */
+  height: 100vh;
   width: 100vw;
   /* margin-bottom: 2rem; */
   padding: 2rem 5rem;
@@ -47,19 +47,21 @@
   position: relative;
   backdrop-filter: invert(1);
   mix-blend-mode: multiply;
+
   background: url('../../assets/image/hero-image/N30.jpg') no-repeat;
   background-size: cover;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   background-attachment: fixed;
+  pointer-events: none;
 
   /* background-position: 0rem -35rem; */
   /* drop-shadow(0.4rem 0px 0 rgb(157, 110, 228)) */
 
   /* -webkit-text-fill-color: transparent; */
 
-  z-index: 2;
+  z-index: 3;
 }
 
 .hero-section::after,
@@ -113,10 +115,15 @@
 }
 
 /*Categories section*/
+
+.categories-section {
+  height: 100%;
+}
+
 /* .categories-section, */
 .trending-section {
   margin-block: 1rem;
-  padding-inline: 5rem;
+  /* padding-inline: 5rem; */
 }
 
 .categories-section .home-cards-section {
@@ -229,6 +236,13 @@
   .categories-section,
   .trending-section {
     padding-inline: 1rem;
+  }
+
+  .categories-section .home-cards-section {
+    display: flex;
+  }
+  .categories-section .card {
+    width: 18rem;
   }
 }
 

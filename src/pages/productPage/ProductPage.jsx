@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { CartButton, WishlistButton } from '../../components/component_index';
+import {
+  CartButton,
+  Rating,
+  WishlistButton,
+} from '../../components/component_index';
 import './ProductPage.css';
 
 export function ProductPage() {
@@ -32,6 +36,7 @@ export function ProductPage() {
         <div className="product-secondary-img-container d-flex">
           {secondaryImgSrc.map((nextImgSrc) => (
             <input
+              key={nextImgSrc}
               type="image"
               onClick={() => setCurrImg(nextImgSrc)}
               className={`product-secondary-img ${
@@ -45,8 +50,15 @@ export function ProductPage() {
       </section>
       <section className="product-information">
         <div className="product-head">
-          <h3 className="product-title">{cardHeading}</h3>
+          <h1 className="product-title">{cardHeading}</h1>
           <p className="product-seller">{cardSubHeading}</p>
+          <Rating rating={rating} />
+        </div>
+        <div className="product-price-container margin-t-5">
+          <h2 className="product-price">
+            <span className="currency-symbol">Rs.</span>
+            {productDiscountedPrice}
+          </h2>
         </div>
         <div className="product-description margin-t-5">
           <p>
@@ -58,12 +70,7 @@ export function ProductPage() {
             tenetur dignissimos accusantium eius. Labore quae iure laboriosam?
           </p>
         </div>
-        <div className="product-price-container margin-t-5">
-          <h2 className="product-price">
-            <span className="currency-symbol">Rs.</span>
-            {productDiscountedPrice}
-          </h2>
-        </div>
+
         <div className="product-btn-container d-flex">
           <CartButton id={id} />
           <WishlistButton id={id} />
