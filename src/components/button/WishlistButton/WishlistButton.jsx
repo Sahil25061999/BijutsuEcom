@@ -45,7 +45,7 @@ export const WishlistButton = ({ id, wishlistState, fromHorizon }) => {
       onClick={handleWishlistAdd}
       className="btn btn-only-icon wishlist-btn "
     >
-      <span className="fa-solid fa-heart wishlist-btn-icon"></span>
+      <span className="fa-regular fa-heart wishlist-btn-icon"></span>
     </button>
   );
 };

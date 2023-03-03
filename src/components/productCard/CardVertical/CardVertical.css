@@ -15,14 +15,18 @@ div.product-card:hover .card-head > h3 {
   font-weight: 800;
 } */
 
+.card-heading {
+  font-weight: bold;
+}
+
 .product-card .card-subheading {
   margin-top: 5px;
   color: var(--muted-color);
 }
 
 .currency-symbol {
-  font-size: 12px;
-  margin-right: 2px;
+  font-size: 14px;
+  margin-right: 4px;
 }
 
 /* @media only screen and (max-width: 1200px) {

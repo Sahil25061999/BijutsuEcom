@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../../../context/context_index';
-import { WishlistButton, CartButton } from '../../component_index';
+import { WishlistButton, CartButton, Rating } from '../../component_index';
 import { postCartQuantity } from '../../../api-call/api-index';
 import './CardHorizontal.css';
 export const CardHorizontal = ({ item }) => {
   const {
     _id: id,
     imgSrc,
+    rating,
     category,
     cardHeading,
     cardBadge,
@@ -92,6 +93,7 @@ export const CardHorizontal = ({ item }) => {
         <div>
           <h4 className="card-heading d-flex">{cardHeading}</h4>
           <p className="card-subheading muted-text-color">{cardSubHeading}</p>
+          <Rating rating={rating} />
         </div>
         <div className="card-pricing ">
           <div className="">

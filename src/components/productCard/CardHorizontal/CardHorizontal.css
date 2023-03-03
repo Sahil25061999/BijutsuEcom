@@ -70,11 +70,14 @@
 
 .btn-container .card-delete-btn {
   border-radius: 1.5rem;
+  box-shadow: none;
 }
 
 .btn-container .card-delete-btn:hover {
-  background-color: var(--muted-dark-color);
-  border-color: var(--muted-dark-color);
+  box-shadow: inset 2px 4px 8px rgba(154, 154, 154, 0.25);
+  background-color: var(--footer-color);
+  border-color: var(--footer-color);
+  color: var(--muted-dark-color);
 }
 
 .card-quantity-container .btn {

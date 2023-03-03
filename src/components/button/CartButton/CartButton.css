@@ -9,19 +9,25 @@
   position: relative;
 }
 
-.go-cart-btn {
-  background-color: var(--active-color);
-  border-color: var(--active-color);
-  color: var(--primary-text-color);
-}
-
 .cart-btn:hover {
   /* color: var(--muted-dark-color); */
   box-shadow: none;
   background-color: var(--muted-dark-color);
   border-color: var(--muted-dark-color);
+  box-shadow: inset 2px 4px 8px rgba(0, 0, 0, 0.4);
   /* background-color: var(--active-color);
   border-color: var(--active-color); */
+}
+
+.go-cart-btn,
+.go-cart-btn:hover {
+  background-color: var(--active-color);
+  border-color: var(--active-color);
+  color: var(--primary-text-color);
+}
+
+.go-cart-btn:hover {
+  box-shadow: inset 2px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .btn-text {

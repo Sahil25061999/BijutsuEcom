@@ -10,7 +10,7 @@
   backdrop-filter: brightness(25%);
   pointer-events: none;
   transition: 0.5s ease-in-out;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .filter-section.filterVisible {

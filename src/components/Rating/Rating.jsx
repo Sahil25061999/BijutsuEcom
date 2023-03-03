@@ -1,19 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Rating.css';
 
 export const Rating = ({ rating }) => {
-  const getWidth = (idx) => {
-    const styleValue = { width: 0, background: 'transparent' };
+  const ratingBackground = useRef([]);
+
+  const getStyle = (idx) => {
     if (idx < Math.floor(rating)) {
-      console.log(idx);
-      return 100;
+      return { background: 'var(--muted-dark-color)' };
     }
     if (idx === Math.floor(rating)) {
       if (rating > Math.floor(rating)) {
-        return 50;
+        return {
+          background:
+            'linear-gradient(to left,rgb(187, 187, 187)50%,var(--muted-dark-color) 50%)',
+        };
       }
     }
   };
+
+  // useEffect(() => {
+  //   for (let i = Math.floor(rating); i > 0; i--) {
+  //     let currRating = ratingBackground.current[i - 1];
+  //     currRating.style.background = 'yellow';
+  //   }
+  //   if (rating > Math.floor(rating)) {
+  //     let currRating = Math.floor(rating);
+  //     ratingBackground.current[currRating].style.background =
+  //       'linear-gradient(to left,rgb(187, 187, 187) 50%, yellow 50%)';
+  //   }
+  // }, []);
 
   return (
     <div className="ratings-container d-flex">
@@ -21,12 +36,8 @@ export const Rating = ({ rating }) => {
         <div className="rating-container" key={idx}>
           <div
             className="rating-bg"
-            style={{
-              width: `${getWidth(idx)}%`,
-              background: {},
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-            }}
+            style={getStyle(idx)}
+            // ref={(element) => ratingBackground.current.push(element)}
           >
             <span className="fa-solid fa-star"></span>
           </div>

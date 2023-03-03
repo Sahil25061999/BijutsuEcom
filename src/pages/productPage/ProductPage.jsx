@@ -50,17 +50,19 @@ export function ProductPage() {
       </section>
       <section className="product-information">
         <div className="product-head">
-          <h1 className="product-title">{cardHeading}</h1>
+          <h2 className="product-title">{cardHeading}</h2>
           <p className="product-seller">{cardSubHeading}</p>
           <Rating rating={rating} />
         </div>
-        <div className="product-price-container margin-t-5">
-          <h2 className="product-price">
-            <span className="currency-symbol">Rs.</span>
+        <div className="product-price-container ">
+          <h1 className="product-price">
+            <span className="currency-symbol" style={{ fontSize: '1rem' }}>
+              Rs.
+            </span>
             {productDiscountedPrice}
-          </h2>
+          </h1>
         </div>
-        <div className="product-description margin-t-5">
+        <div className="product-description ">
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id eos
             nostrum consectetur beatae aliquid? Provident quia repellat minus

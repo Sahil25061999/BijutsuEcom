@@ -2,6 +2,15 @@
   width: min-content;
 }
 
+.rating-bg {
+  background: rgb(187, 187, 187);
+  background-clip: text;
+  -webkit-background-clip: text !important;
+  margin-right: 2px;
+}
+
 .rating-bg span {
-  color: rgba(0, 0, 0, 0.4);
+  font-size: 13px;
+
+  color: transparent;
 }

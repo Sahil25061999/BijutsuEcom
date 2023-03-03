@@ -1,6 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BuyButton, CartButton, WishlistButton } from '../../component_index';
+import {
+  BuyButton,
+  CartButton,
+  Rating,
+  WishlistButton,
+} from '../../component_index';
 import './CardVertical.css';
 
 import '../ProductCard.css';
@@ -53,13 +58,8 @@ export const CardVertical = ({ item }) => {
         // onClick={() => navigate(`/product/${id}`, { state: { item } })}
       >
         <div className="card-head-top d-flex">
-          <h4 className="card-heading d-flex">{cardHeading}</h4>
+          <p className="card-heading d-flex">{cardHeading}</p>
           <p>
-            {rating && (
-              <span className="badge-text badge-sm badge-primary rating-badge">
-                <span className="fa-regular fa-star"></span> {rating}
-              </span>
-            )}
             {fast && (
               <span className="badge-text badge-sm badge-primary express-badge">
                 {fast ? 'express delivery' : ''}
@@ -69,16 +69,17 @@ export const CardVertical = ({ item }) => {
         </div>
 
         <p className="card-subheading">{cardSubHeading}</p>
+        <Rating rating={rating} />
       </div>
       <div className="card-content">
         <div className="card-pricing">
           <h2 className="margin-r-5">
-            <span className="card-og-price small-text strike-text muted-text-color">
+            <span className="currency-symbol">Rs.</span>
+            {productDiscountedPrice}
+            <span className="margin-l-10 card-og-price small-text strike-text muted-text-color">
               <span className="currency-symbol">Rs.</span>
               {productOriginalPrice}
             </span>{' '}
-            <span className="currency-symbol">Rs.</span>
-            {productDiscountedPrice}
           </h2>
           {/* <span className="card-og-price small-text strike-text">
             {productOriginalPrice}
