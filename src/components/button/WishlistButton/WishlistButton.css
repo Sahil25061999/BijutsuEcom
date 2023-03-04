@@ -1,5 +1,6 @@
 .wishlist-btn {
   border-radius: 1.5rem;
+  border: none;
 }
 
 .wishlist-btn:hover {

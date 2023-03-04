@@ -50,7 +50,14 @@ export function ProductPage() {
       </section>
       <section className="product-information">
         <div className="product-head">
-          <h2 className="product-title">{cardHeading}</h2>
+          <div className="product-title">
+            <h2>{cardHeading}</h2>{' '}
+            {fast && (
+              <span className="badge-text badge-sm badge-primary express-badge">
+                {fast ? 'express delivery' : ''}
+              </span>
+            )}
+          </div>
           <p className="product-seller">{cardSubHeading}</p>
           <Rating rating={rating} />
         </div>

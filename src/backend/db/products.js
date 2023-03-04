@@ -165,7 +165,7 @@ export const products = [
     cart: false,
     rating: 3.5,
     quantity: 1,
-    expressDelivery: true,
+    expressDelivery: false,
     inStock: 100,
   },
   {
@@ -258,7 +258,7 @@ export const products = [
     cart: false,
     rating: 3.5,
     quantity: 1,
-    expressDelivery: true,
+    expressDelivery: false,
     inStock: 100,
   },
 
@@ -282,7 +282,7 @@ export const products = [
     cart: false,
     rating: 3.5,
     quantity: 1,
-    expressDelivery: true,
+    expressDelivery: false,
     inStock: 100,
   },
   {

@@ -77,7 +77,7 @@ export const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="navbar-item">
-                  <NavLink to="/signup" className="navbar-link btn btn-black">
+                  <NavLink to="/signup" className="navbar-link btn ">
                     Sign up
                   </NavLink>
                 </li>

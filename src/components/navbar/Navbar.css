@@ -1,14 +1,14 @@
 .navbar.home-navbar {
   padding: 8px 5rem;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
 
   /* background-color: rgba(0, 0, 0, 0.5); */
   backdrop-filter: blur(0);
 
   margin-bottom: 0;
   top: 0;
-  position: fixed;
-  z-index: 4;
+  /* position: fixed; */
+  z-index: 3;
 }
 
 .logo-container h2 {

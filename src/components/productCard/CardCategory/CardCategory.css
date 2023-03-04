@@ -2,8 +2,17 @@
   --browse-btn-shadow: rgb(0, 0, 0);
 }
 
-.home-card {
+.category-card {
+  /* height: 20rem; */
   height: fit-content;
+}
+
+.category-card .card-image-container {
+  height: 18rem;
+}
+
+.category-card-head {
+  margin-bottom: 0;
 }
 
 .category-card-head .card-heading {
@@ -11,17 +20,17 @@
 }
 
 .home-card:hover {
-  /* transform: scale(0.9); */
-
   box-shadow: none;
 }
 
 .category-image {
+  object-position: center bottom;
   transition: all 0.2s ease-in;
 }
 
 .home-card:hover .category-image {
   transform: scale(1.2);
+  filter: brightness(50%) blur(4px);
 }
 
 .category-card-head {
@@ -31,14 +40,42 @@
 
 .card-image-container {
   position: relative;
+  transform-origin: 0 0;
 }
 
-.card-video {
+.card-title-wrap {
   position: absolute;
-  top: 0;
-  left: 0;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
   z-index: 1;
-  mix-blend-mode: lighten;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(255, 255, 255, 0.995);
+  /* filter: invert(1); */
+  /* mix-blend-mode: multiply; */
+  opacity: 1;
+  transition: all 0.2s ease-in;
+}
+
+.home-card:hover .card-title,
+.home-card:hover .card-title-wrap {
+  opacity: 1;
+}
+
+.home-card:hover .card-title {
+  transform: scale(1.2);
 }
 
 .browse-btn {

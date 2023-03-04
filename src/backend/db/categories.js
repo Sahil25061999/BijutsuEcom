@@ -1,13 +1,13 @@
 import { v4 as uuid } from 'uuid';
-import AbstractImage from '../../assets/image/card image/compressor/images/abstract.webp';
+import AbstractImage from '../../assets/image/category image/categoryAbstractImage.webp';
 import abstract from '../../assets/image/category animated card/abstractArt.mp4';
-import DigitalArt from '../../assets/image/card image/compressor/images/digital art.jpg';
+import DigitalArt from '../../assets/image/category image/categoryDigitalImage.webp';
 import digitalart from '../../assets/image/category animated card/digitalArt.mp4';
-import Photography from '../../assets/image/card image/compressor/images/photography.webp';
+import Photography from '../../assets/image/category image/categoryPhotographyImage.webp';
 import photography from '../../assets/image/category animated card/photography.mp4';
-import HipHop from '../../assets/image/card image/compressor/images/hip hop music.jpg';
+import HipHop from '../../assets/image/category image/categoryHipHopImage.webp';
 import hiphop from '../../assets/image/category animated card/hipHop.mp4';
-import EDM from '../../assets/image/card image/compressor/images/edm.jpg';
+import EDM from '../../assets/image/category image/categoryEdmImage.webp';
 import edm from '../../assets/image/category animated card/edm.mp4';
 
 /**

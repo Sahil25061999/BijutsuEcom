@@ -2,7 +2,7 @@
   padding-inline: 5rem;
   padding-top: 1rem;
   gap: 2.5rem;
-
+  min-height: 100vh;
   /* z-index: ; */
 
   /* padding-top: 1rem; */
@@ -47,6 +47,14 @@
   padding: 2px;
   border: 2px solid var(--muted-dark-color);
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-title {
+  display: flex;
+  align-items: center;
+}
+.product-title h2 {
+  margin-right: 5px;
 }
 
 .product-information {
