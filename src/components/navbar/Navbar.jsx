@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useWishlist, useCart, useToken } from '../../context/context_index';
 import { SearchBar } from '../component_index';
 import './Navbar.css';
+import { SideNavbar } from './SideNavbar';
 
 export const Navbar = () => {
   const { setWishlistData, itemInWishlist } = useWishlist();
   const { setCartData, itemInCart } = useCart();
+  const [displaySideNav, setDisplaySideNav] = useState(false);
 
   const { token, setToken } = useToken();
 
@@ -14,6 +16,10 @@ export const Navbar = () => {
     setToken(localStorage.clear());
     setCartData([]);
     setWishlistData([]);
+  };
+
+  const handleSideNav = () => {
+    setDisplaySideNav(!displaySideNav);
   };
 
   return (
@@ -24,7 +30,11 @@ export const Navbar = () => {
             <NavLink to="/">BIJUTSU</NavLink>
           </h2>
         </div>
+        <button className="navbar-btn" onClick={() => handleSideNav()}>
+          <span className="fa-solid fa-bars"></span>
+        </button>
         <SearchBar />
+
         <nav className="navbar-menu">
           <ul className="navbar-list list-style-none">
             <li className="navbar-item">
@@ -83,15 +93,10 @@ export const Navbar = () => {
                 </li>
               </>
             )}
-
-            <li className="navbar-item hamburger-icon">
-              <a href="#" className="navbar-link btn">
-                <span className="fa-solid fa-bars"></span>
-              </a>
-            </li>
           </ul>
         </nav>
       </header>
+      <SideNavbar display={displaySideNav} />
     </>
   );
 };

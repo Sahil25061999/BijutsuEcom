@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { Navbar, Footer } from './components/component_index';
+import { Navbar, Footer, SideNavbar } from './components/component_index';
 import {
   HomePage,
   ProductList,
@@ -16,6 +16,7 @@ function App() {
   return (
     <>
       <Navbar />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/product-list" element={<ProductList />} />

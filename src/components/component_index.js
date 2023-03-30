@@ -12,3 +12,4 @@ export { CardHomeVertical } from './productCard/CardHomeVertical/CardHomeVertica
 export { CardHorizontal } from './productCard/CardHorizontal/CardHorizontal';
 export { SearchBar } from './searchBar/SearchBar';
 export { Rating } from './Rating/Rating';
+export { SideNavbar } from './navbar/SideNavbar';
