@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../Authentication.css';
-import { Link, useNavigate } from 'react-router-dom';
-import { useCart, useToken, useWishlist } from '../../../context/context_index';
+import React, { useState } from "react";
+import axios from "axios";
+import "../Authentication.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart, useToken, useWishlist } from "../../../context/context_index";
 import {
   postLogin,
   getWishlistData,
   getCartData,
-} from '../../../api-call/api-index';
-import { useError } from '../../../reducer/useError';
+} from "../../../api-call/api-index";
+import { useError } from "../../../reducer/useError";
 
 export const Login = () => {
   const [user, setUser] = useState({
-    loginEmail: '',
-    loginPassword: '',
+    loginEmail: "test123@gmail.com",
+    loginPassword: "test123",
   });
   const [error, errorDispatch] = useError();
   const { emailError, passwordError } = error;
@@ -32,17 +32,17 @@ export const Login = () => {
     const response = await postLogin(user.loginEmail, user.loginPassword);
     if (response.status === 404) {
       errorDispatch({
-        type: 'EMAIL_ERROR',
-        payload: 'email doesnt exist',
+        type: "EMAIL_ERROR",
+        payload: "email doesnt exist",
       });
       return;
     }
     if (!Object.keys(response.data).length) {
-      errorDispatch({ type: 'PASSWORD_ERROR', payload: 'check password' });
+      errorDispatch({ type: "PASSWORD_ERROR", payload: "check password" });
     }
     if (response.data.encodedToken) {
-      localStorage.setItem('token', response.data.encodedToken);
-      setToken(localStorage.getItem('token'));
+      localStorage.setItem("token", response.data.encodedToken);
+      setToken(localStorage.getItem("token"));
 
       const dataFromCart = await getCartData(response.data.encodedToken);
       const dataFromWishlist = await getWishlistData(
@@ -51,7 +51,7 @@ export const Login = () => {
 
       setCartData([...dataFromCart.data.cart]);
       setWishlistData([...dataFromWishlist.data.wishlist]);
-      navigate('/');
+      navigate("/");
     }
   };
 
@@ -66,6 +66,7 @@ export const Login = () => {
               Email <span className="text-center error-msg">{emailError}</span>
             </label>
             <input
+              value={user.loginEmail}
               id="email"
               className="textbox"
               type="email"
@@ -74,14 +75,15 @@ export const Login = () => {
           </div>
           <div className="input-container">
             <label htmlFor="password">
-              Password{' '}
+              Password{" "}
               <span className="text-center error-msg">{passwordError}</span>
             </label>
             <input
+              value={user.loginPassword}
               id="password"
               placeholder="should contain letters and number"
               className="textbox"
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               onChange={(e) =>
                 setUser({ ...user, loginPassword: e.target.value })
               }
@@ -90,7 +92,7 @@ export const Login = () => {
             <span
               onClick={handleShowPassword}
               className={`fa-solid ${
-                showPassword ? 'fa-eye' : 'fa-eye-slash'
+                showPassword ? "fa-eye" : "fa-eye-slash"
               } password-eye-icon`}
             ></span>
           </div>
@@ -128,7 +130,7 @@ export const Login = () => {
               to="/signup"
               className="secondary-text-color form-signup-link"
             >
-              {' '}
+              {" "}
               Sign Up
             </Link>
           </p>
